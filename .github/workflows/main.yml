@@ -28,13 +28,9 @@ jobs:
           pip install --upgrade pip
           pip install flet==0.21.2
           
-      - name: Build APK with Icon and Name
+      - name: Build APK
         run: |
-          if [ -f "assets/icon.png" ]; then
-            flet build apk --icon assets/icon.png --name "IDELingo"
-          else
-            flet build apk --name "IDELingo"
-          fi
+          flet build apk --name "IDELingo"
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
