@@ -7,7 +7,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "core"))
 
 from UserManager import UserManager
-# OfflineDictionary حذف شد - برای اندروید مشکل داشت
+from OfflineDictionary import OfflineDictionary
 
 # Colors
 COLORS = {
@@ -39,10 +39,12 @@ class IDELingoApp:
         self.current_user = None
         self.page = None
         self.current_index = 0
+        self.offline_dict = None
         
     def init_backend(self):
         try:
             self.user_manager = UserManager()
+            self.offline_dict = OfflineDictionary()
             return True
         except Exception as e:
             print(f"Error: {e}")
@@ -517,6 +519,15 @@ class IDELingoApp:
                                              ft.dropdown.Option("German"), ft.dropdown.Option("Japanese")], value="English", width=300)
         diff_dropdown = ft.Dropdown(options=[ft.dropdown.Option("easy"), ft.dropdown.Option("medium"), ft.dropdown.Option("hard")], value="medium", width=300)
         
+        # اضافه کردن بخش دیکشنری
+        dict_result = ft.Text("", size=12, color=COLORS['text_secondary'])
+        
+        def search_dict(e):
+            if word_field.value:
+                result = self.offline_dict.get_meaning_with_pronunciation(word_field.value)
+                dict_result.value = result[:300] + ("..." if len(result) > 300 else "")
+                dict_result.update()
+                
         def save_word(e):
             if word_field.value and meaning_field.value:
                 self.user_manager.add_vocabulary(self.current_user['id'], word_field.value, meaning_field.value, 
@@ -531,9 +542,11 @@ class IDELingoApp:
             title=ft.Text("Add New Word", color=COLORS['accent']),
             content=ft.Container(
                 content=ft.Column([
-                    word_field, meaning_field, example_field, lang_dropdown, diff_dropdown
+                    word_field, meaning_field, example_field, lang_dropdown, diff_dropdown,
+                    ft.ElevatedButton("🔍 Search in Dictionary", on_click=search_dict, bgcolor=COLORS['info']),
+                    dict_result
                 ], spacing=15, scroll=ft.ScrollMode.AUTO),
-                padding=20, width=380, height=450
+                padding=20, width=380, height=550
             ),
             actions=[
                 ft.TextButton("Cancel", on_click=lambda e: self._close_dialog(dialog)),
