@@ -1,7 +1,7 @@
 # core/UserManager.py
 from Database import Database
 from GrammarEnhancer import GrammarEnhancer
-from OfflineDictionary import OfflineDictionary
+# from OfflineDictionary import OfflineDictionary  # حذف شد
 from AdvancedGrammarChecker import AdvancedGrammarChecker
 from PlanManager import PlanManager
 import hashlib
@@ -14,7 +14,7 @@ class UserManager:
         try:
             self.db = Database()
             self.grammar_enhancer = GrammarEnhancer()
-            self.offline_dict = OfflineDictionary()
+            # self.offline_dict = OfflineDictionary()  # حذف شد
             self.grammar_checker = AdvancedGrammarChecker()
             self.plan_manager = PlanManager(self.db)
             self.current_user = None
