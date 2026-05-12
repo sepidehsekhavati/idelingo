@@ -23,24 +23,18 @@ jobs:
           flutter-version: '3.19.0'
           channel: 'stable'
           
-      - name: Setup Flutter Environment
-        run: |
-          flutter config --no-analytics
-          flutter doctor
-          
       - name: Install Flet
         run: |
           pip install --upgrade pip
           pip install flet==0.21.2
           
-      - name: Create required directories
+      - name: Build APK with Icon and Name
         run: |
-          mkdir -p assets
-          mkdir -p core
-          
-      - name: Build APK
-        run: |
-          flet build apk --verbose
+          if [ -f "assets/icon.png" ]; then
+            flet build apk --icon assets/icon.png --name "IDELingo"
+          else
+            flet build apk --name "IDELingo"
+          fi
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
