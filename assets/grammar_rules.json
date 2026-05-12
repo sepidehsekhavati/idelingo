@@ -1,0 +1,2502 @@
+{
+  "present_simple_to_be": {
+    "level": "A1",
+    "title": "Present Simple forms of 'to be'",
+    "structure": "am/is/are",
+    "examples": [
+      "I am a student.",
+      "You are my friend.",
+      "He is from London.",
+      "We are happy."
+    ],
+    "usage": [
+      "Introduce yourself: I am John.",
+      "Describe states: She is tired.",
+      "Talk about professions: They are doctors."
+    ],
+    "common_mistakes": [
+      "❌ I is happy → ✅ I am happy",
+      "❌ You am my friend → ✅ You are my friend"
+    ]
+  },
+  "present_simple": {
+    "level": "A1",
+    "title": "Present Simple",
+    "structure": "Subject + base verb (add 's'/'es' for he/she/it)",
+    "examples": [
+      "I work in an office.",
+      "She works at a hospital.",
+      "They play football every Friday.",
+      "The sun rises in the east."
+    ],
+    "usage": [
+      "Permanent states and facts: Water boils at 100°C.",
+      "Habits and routines: I usually drink coffee in the morning.",
+      "Fixed schedules: The train leaves at 6 PM."
+    ],
+    "common_mistakes": [
+      "❌ He go to school → ✅ He goes to school",
+      "❌ I doesn't like it → ✅ I don't like it"
+    ]
+  },
+  "present_continuous": {
+    "level": "A1",
+    "title": "Present Continuous",
+    "structure": "Subject + am/is/are + verb-ing",
+    "examples": [
+      "I am reading a book right now.",
+      "She is talking on the phone.",
+      "They are playing football at the moment."
+    ],
+    "usage": [
+      "Actions happening now: Look! It's raining.",
+      "Temporary situations: I'm studying for my exams these days.",
+      "Future arrangements: We're meeting for coffee tomorrow."
+    ],
+    "common_mistakes": [
+      "❌ She are going → ✅ She is going",
+      "❌ I am study → ✅ I am studying"
+    ]
+  },
+  "present_simple_vs_continuous_a1": {
+    "level": "A1",
+    "title": "Present Simple or Present Continuous?",
+    "structure": "",
+    "examples": [
+      "I work (habit) vs I am working (right now)",
+      "She lives in London (permanent) vs She is living with her parents (temporary)"
+    ],
+    "usage": [
+      "Use Present Simple for habits, facts, routines",
+      "Use Present Continuous for actions happening now or temporary situations"
+    ],
+    "common_mistakes": [
+      "❌ I am knowing the answer → ✅ I know the answer (stative verb)"
+    ]
+  },
+  "present_simple_vs_continuous_a2": {
+    "level": "A2",
+    "title": "Present Simple vs Present Continuous",
+    "structure": "",
+    "examples": [
+      "I think you are right (opinion) vs I'm thinking about you (action)",
+      "This soup tastes delicious (sense) vs She is tasting the soup (action)"
+    ],
+    "usage": [
+      "Some verbs change meaning: think, have, see, taste, feel"
+    ],
+    "common_mistakes": [
+      "❌ I am having a car → ✅ I have a car"
+    ]
+  },
+  "present_simple_vs_continuous_b1": {
+    "level": "B1",
+    "title": "Present Simple or Present Continuous",
+    "structure": "",
+    "examples": [
+      "I always wake up early (always with simple)",
+      "I'm always losing my keys (annoying habit with continuous)"
+    ],
+    "usage": [
+      "Present continuous with always expresses annoyance",
+      "Stative verbs are rarely used in continuous"
+    ],
+    "common_mistakes": []
+  },
+  "have_got": {
+    "level": "A1",
+    "title": "Have Got",
+    "structure": "have/has got + object",
+    "examples": [
+      "I have got a new car.",
+      "She has got blue eyes.",
+      "Have you got any siblings?"
+    ],
+    "usage": [
+      "Possession: I've got a house.",
+      "Family: She's got two brothers.",
+      "Appearance: He's got dark hair."
+    ],
+    "common_mistakes": [
+      "❌ I have got a car? → ✅ Have I got a car?",
+      "❌ She hasn't got a car (correct, not I haven't got? It's fine in British English)"
+    ]
+  },
+  "present_perfect": {
+    "level": "A2",
+    "title": "Present Perfect",
+    "structure": "Subject + have/has + past participle",
+    "examples": [
+      "I have seen that movie before.",
+      "She has finished her report.",
+      "We have lived here for 10 years."
+    ],
+    "usage": [
+      "Life experiences: I have never been to Paris.",
+      "Past action with present result: I have lost my keys (I can't find them).",
+      "Action from past to present: We have known each other since 2010."
+    ],
+    "common_mistakes": [
+      "❌ I have went → ✅ I have gone",
+      "❌ She have done → ✅ She has done"
+    ]
+  },
+  "present_perfect_vs_past_simple_a2": {
+    "level": "A2",
+    "title": "Present Perfect or Past Simple?",
+    "structure": "",
+    "examples": [
+      "I have visited Paris (unspecified time) vs I visited Paris in 2010 (specific time)",
+      "She has lost her keys (result now) vs She lost her keys yesterday (action finished)"
+    ],
+    "usage": [
+      "Present Perfect: unspecified time, result now, experience",
+      "Past Simple: specific time, finished action"
+    ],
+    "common_mistakes": [
+      "❌ I have seen him yesterday → ✅ I saw him yesterday"
+    ]
+  },
+  "past_simple_vs_present_perfect_b1": {
+    "level": "B1",
+    "title": "Past Simple or Present Perfect?",
+    "structure": "",
+    "examples": [
+      "I have lived here for 5 years (still here) vs I lived here for 5 years (not anymore)",
+      "She has written 10 books (in her life) vs She wrote 10 books (in a specific period)"
+    ],
+    "usage": [
+      "Present perfect for unfinished time: I have seen her today",
+      "Past simple for finished time: I saw her yesterday"
+    ],
+    "common_mistakes": []
+  },
+  "present_perfect_simple_vs_continuous_b1": {
+    "level": "B1",
+    "title": "Present Perfect Simple vs Continuous",
+    "structure": "",
+    "examples": [
+      "I have painted the room (result: it's done) vs I have been painting the room (action in progress)",
+      "She has read 50 pages (quantity) vs She has been reading for an hour (duration)"
+    ],
+    "usage": [
+      "Simple focuses on result, completion, quantity",
+      "Continuous focuses on action, duration, temporary"
+    ],
+    "common_mistakes": [
+      "❌ I have been knowing him → ✅ I have known him"
+    ]
+  },
+  "present_perfect_simple_or_continuous_b1_plus": {
+    "level": "B1+",
+    "title": "Present Perfect Simple or Continuous",
+    "structure": "",
+    "examples": [
+      "I have worked here for 10 years (permanent) vs I have been working hard lately (temporary)",
+      "She has written 5 books (completed) vs She has been writing a novel (ongoing)"
+    ],
+    "usage": [
+      "Stative verbs only use simple: I've known her for years",
+      "With how long: both are possible but continuous emphasizes duration"
+    ],
+    "common_mistakes": []
+  },
+  "was_were": {
+    "level": "A1",
+    "title": "Was/Were - Past Simple of 'be'",
+    "structure": "was/were + complement",
+    "examples": [
+      "I was tired yesterday.",
+      "They were at the party.",
+      "She was born in 1990."
+    ],
+    "usage": [
+      "Past states: I was happy.",
+      "Past locations: We were at home.",
+      "Past descriptions: The movie was boring."
+    ],
+    "common_mistakes": [
+      "❌ I were happy → ✅ I was happy",
+      "❌ She were at home → ✅ She was at home"
+    ]
+  },
+  "past_simple_a1": {
+    "level": "A1",
+    "title": "Past Simple",
+    "structure": "Regular: verb + ed / Irregular: special forms",
+    "examples": [
+      "I walked to school yesterday.",
+      "She went to Paris last year.",
+      "They played football on Sunday."
+    ],
+    "usage": [
+      "Completed actions at a specific past time: I graduated in 2010.",
+      "Sequence of past actions: I woke up, brushed my teeth, and had breakfast.",
+      "Past habits: When I was a child, I played in the park every day."
+    ],
+    "common_mistakes": [
+      "❌ I didn't went → ✅ I didn't go",
+      "❌ She goed → ✅ She went"
+    ]
+  },
+  "past_simple_negatives_and_questions": {
+    "level": "A1",
+    "title": "Past Simple Negatives and Questions",
+    "structure": "Negative: didn't + base verb / Question: Did + subject + base verb",
+    "examples": [
+      "I didn't like the movie.",
+      "She didn't go to the party.",
+      "Did you see him?",
+      "Where did they go?"
+    ],
+    "usage": [
+      "Use 'didn't' for negative statements",
+      "Use 'did' + subject + base verb for questions"
+    ],
+    "common_mistakes": [
+      "❌ I didn't went → ✅ I didn't go",
+      "❌ Did you saw him? → ✅ Did you see him?"
+    ]
+  },
+  "past_simple_a2": {
+    "level": "A2",
+    "title": "Past Simple: Form and Use",
+    "structure": "Subject + past form (regular/irregular)",
+    "examples": [
+      "I bought a new phone yesterday.",
+      "She studied all night.",
+      "They arrived at 8 PM."
+    ],
+    "usage": [
+      "Completed past actions: I finished my homework.",
+      "Past states: I was a teacher.",
+      "Sequence of events: He opened the door and walked in."
+    ],
+    "common_mistakes": []
+  },
+  "past_continuous_and_past_simple_a2": {
+    "level": "A2",
+    "title": "Past Continuous and Past Simple",
+    "structure": "Past continuous (was/were + -ing) + when/while + past simple",
+    "examples": [
+      "I was watching TV when you called.",
+      "While she was sleeping, the phone rang.",
+      "They were playing football when it started to rain."
+    ],
+    "usage": [
+      "Past continuous: longer/background action",
+      "Past simple: shorter/interrupting action"
+    ],
+    "common_mistakes": [
+      "❌ When I was coming, I saw him → ✅ When I came, I saw him (sudden event: past simple)"
+    ]
+  },
+  "past_perfect_a2": {
+    "level": "A2",
+    "title": "Past Perfect",
+    "structure": "Subject + had + past participle",
+    "examples": [
+      "I had eaten dinner before they arrived.",
+      "She had finished her work by 5 PM.",
+      "They had already left when I got there."
+    ],
+    "usage": [
+      "Action completed before another past action: When I arrived, everyone had left."
+    ],
+    "common_mistakes": [
+      "❌ I had went → ✅ I had gone",
+      "❌ I had did → ✅ I had done"
+    ]
+  },
+  "past_simple_past_continuous_past_perfect_b1": {
+    "level": "B1",
+    "title": "Past Simple, Past Continuous, Past Perfect",
+    "structure": "",
+    "examples": [
+      "When I arrived, he had already left (past perfect before past simple)",
+      "While I was walking home, I saw an accident (past continuous interrupted by past simple)"
+    ],
+    "usage": [
+      "Past perfect: before another past action",
+      "Past continuous: ongoing past action",
+      "Past simple: completed past action"
+    ],
+    "common_mistakes": []
+  },
+  "narrative_tenses_b1_plus": {
+    "level": "B1+",
+    "title": "Narrative Tenses",
+    "structure": "Past perfect, past continuous, past simple",
+    "examples": [
+      "I had been waiting for an hour when the bus finally arrived (past perfect continuous)",
+      "While I was walking, I realized I had lost my keys (mix of tenses)"
+    ],
+    "usage": [
+      "Use past perfect for events before the main timeline",
+      "Use past continuous for background description",
+      "Use past simple for main events"
+    ],
+    "common_mistakes": []
+  },
+  "narrative_tenses_b2": {
+    "level": "B2",
+    "title": "Narrative Tenses: Used to, Would",
+    "structure": "used to + infinitive / would + infinitive",
+    "examples": [
+      "I used to live in London (past habit that stopped).",
+      "Every summer, we would go to the beach (repeated past action)."
+    ],
+    "usage": [
+      "'Used to' for past states and habits",
+      "'Would' for repeated past actions (not states)"
+    ],
+    "common_mistakes": [
+      "❌ I would have a car → ✅ I used to have a car (would not for past states)"
+    ]
+  },
+  "will_and_shall_future": {
+    "level": "A1",
+    "title": "Future Simple (will/shall)",
+    "structure": "Subject + will/shall + base verb",
+    "examples": [
+      "I will call you tomorrow.",
+      "It will rain later.",
+      "Shall I open the window? (offer/suggestion)"
+    ],
+    "usage": [
+      "Predictions: It will be sunny.",
+      "Spontaneous decisions: I'll answer that.",
+      "Promises: I'll never tell anyone.",
+      "Offers & suggestions with 'shall' for I/we"
+    ],
+    "common_mistakes": [
+      "❌ I will goes → ✅ I will go",
+      "❌ He will to come → ✅ He will come"
+    ]
+  },
+  "be_going_to": {
+    "level": "A1",
+    "title": "Be Going To",
+    "structure": "Subject + am/is/are + going to + base verb",
+    "examples": [
+      "I am going to study medicine.",
+      "She is going to travel next year.",
+      "Look at those clouds! It's going to rain."
+    ],
+    "usage": [
+      "Plans and intentions: I'm going to learn Spanish.",
+      "Predictions based on evidence: It's going to snow."
+    ],
+    "common_mistakes": [
+      "❌ I going to study → ✅ I am going to study",
+      "❌ She is going to studies → ✅ She is going to study"
+    ]
+  },
+  "will_vs_going_to_a2": {
+    "level": "A2",
+    "title": "Will vs Be Going To",
+    "structure": "",
+    "examples": [
+      "I think it will rain (prediction without evidence) vs Look! It's going to rain (evidence)",
+      "I'll answer the phone (spontaneous) vs I'm going to call her later (planned)"
+    ],
+    "usage": [
+      "Will: predictions, spontaneous decisions, promises",
+      "Going to: plans, intentions, evidence-based predictions"
+    ],
+    "common_mistakes": []
+  },
+  "present_continuous_for_future": {
+    "level": "A2",
+    "title": "Present Continuous for Future",
+    "structure": "Subject + am/is/are + verb-ing + future time",
+    "examples": [
+      "I am meeting John tomorrow.",
+      "She is leaving on Monday.",
+      "They are coming to the party tonight."
+    ],
+    "usage": [
+      "Arrangements and fixed plans: We're having dinner at 8 PM."
+    ],
+    "common_mistakes": [
+      "❌ I am meet him tomorrow → ✅ I am meeting him tomorrow"
+    ]
+  },
+  "future_forms_b1": {
+    "level": "B1",
+    "title": "Future Forms",
+    "structure": "will, be going to, present continuous, present simple for future",
+    "examples": [
+      "The train leaves at 6 PM (timetable - present simple)",
+      "I'm having dinner with her tonight (arrangement - present continuous)",
+      "I'll help you (spontaneous - will)",
+      "I'm going to buy a new car (plan - going to)"
+    ],
+    "usage": [
+      "Present simple: timetables, schedules",
+      "Present continuous: personal arrangements",
+      "Will: spontaneous decisions, predictions",
+      "Going to: plans, evidence-based predictions"
+    ],
+    "common_mistakes": []
+  },
+  "future_continuous_and_perfect": {
+    "level": "B1+",
+    "title": "Future Continuous and Future Perfect",
+    "structure": "Future continuous: will be + -ing / Future perfect: will have + past participle",
+    "examples": [
+      "This time tomorrow, I will be flying to Paris (in progress at a future time).",
+      "By next year, I will have graduated (completed before a future time)."
+    ],
+    "usage": [
+      "Future continuous: action in progress at a specific future time",
+      "Future perfect: action that will be completed before a future time"
+    ],
+    "common_mistakes": [
+      "❌ By tomorrow, I will finish → ✅ By tomorrow, I will have finished"
+    ]
+  },
+  "future_forms_b2": {
+    "level": "B2",
+    "title": "Expressing Future Time",
+    "structure": "be to + infinitive, be about to, be due to, be on the verge of",
+    "examples": [
+      "The president is to visit France (formal arrangement).",
+      "We are about to leave (immediate future).",
+      "The train is due to arrive at 6 PM (scheduled)."
+    ],
+    "usage": [
+      "Be + to + infinitive: formal arrangements, instructions",
+      "Be about to: very soon",
+      "Be due to: expected at a certain time"
+    ],
+    "common_mistakes": []
+  },
+  "other_ways_to_express_future": {
+    "level": "B2",
+    "title": "Other Ways to Express Future",
+    "structure": "be to + infinitive, be about to, be due to",
+    "examples": [
+      "She is to be married in June.",
+      "The concert is about to start.",
+      "The flight is due to land at 8 PM."
+    ],
+    "usage": [
+      "Formal plans: The meeting is to take place tomorrow.",
+      "Immediate future: Hurry up! The train is about to leave."
+    ],
+    "common_mistakes": []
+  },
+  "future_in_the_past": {
+    "level": "B2",
+    "title": "Future in the Past",
+    "structure": "would + infinitive / was/were going to + infinitive",
+    "examples": [
+      "I knew she would come (future from past perspective).",
+      "He said he was going to call, but he never did."
+    ],
+    "usage": [
+      "Expressing a future action from a past perspective"
+    ],
+    "common_mistakes": []
+  },
+  "review_all_tenses_a2": {
+    "level": "A2",
+    "title": "Review All Verb Tenses A2",
+    "structure": "",
+    "examples": [
+      "I work (present simple), I am working (present continuous), I worked (past simple), I will work (future simple)"
+    ],
+    "usage": [
+      "Review of present, past, and future tenses at A2 level"
+    ],
+    "common_mistakes": []
+  },
+  "review_all_tenses_b1": {
+    "level": "B1",
+    "title": "Review All Verb Tenses B1",
+    "structure": "",
+    "examples": [
+      "I work, I am working, I have worked, I have been working, I worked, I was working, I will work, I will be working, I will have worked"
+    ],
+    "usage": [
+      "Review of all tenses including continuous and perfect forms"
+    ],
+    "common_mistakes": []
+  },
+  "review_all_tenses_b1_b2": {
+    "level": "B1+",
+    "title": "Review All Verb Tenses B1-B2",
+    "structure": "",
+    "examples": [
+      "All tense forms including past perfect continuous, future perfect continuous"
+    ],
+    "usage": [
+      "Comprehensive review of all tense forms"
+    ],
+    "common_mistakes": []
+  },
+  "can_cant": {
+    "level": "A1",
+    "title": "Can / Can't",
+    "structure": "Subject + can/can't + base verb",
+    "examples": [
+      "I can swim very well.",
+      "She can't drive a car.",
+      "Can you help me?"
+    ],
+    "usage": [
+      "Ability: I can speak three languages.",
+      "Permission: You can sit here.",
+      "Possibility: It can get very cold here."
+    ],
+    "common_mistakes": [
+      "❌ I can to swim → ✅ I can swim",
+      "❌ She cans play → ✅ She can play"
+    ]
+  },
+  "imperative": {
+    "level": "A1",
+    "title": "The Imperative",
+    "structure": "Base verb (+ object) / Don't + base verb",
+    "examples": [
+      "Sit down!",
+      "Don't talk!",
+      "Please be quiet.",
+      "Turn left."
+    ],
+    "usage": [
+      "Give commands: Stop!",
+      "Give instructions: Mix the flour and eggs.",
+      "Make offers: Have a seat.",
+      "Give warnings: Look out!"
+    ],
+    "common_mistakes": [
+      "❌ To sit down → ✅ Sit down (no 'to')"
+    ]
+  },
+  "would_you_like": {
+    "level": "A1",
+    "title": "Would you like...? I'd like...",
+    "structure": "Would you like + noun/to + infinitive",
+    "examples": [
+      "Would you like a cup of tea?",
+      "Would you like to join us?",
+      "I'd like the chicken, please."
+    ],
+    "usage": [
+      "Polite offers: Would you like some help?",
+      "Polite requests: I'd like to book a table.",
+      "Ordering food: I'd like a coffee."
+    ],
+    "common_mistakes": [
+      "❌ Would you like some coffee? Yes, I like → ✅ Yes, please"
+    ]
+  },
+  "have_to_must": {
+    "level": "A2",
+    "title": "Have to / Must",
+    "structure": "Subject + have to/has to/must + base verb",
+    "examples": [
+      "You must stop at a red light.",
+      "I have to finish this report.",
+      "She has to wake up early."
+    ],
+    "usage": [
+      "Must: personal obligation, strong recommendation",
+      "Have to: external obligation, necessity"
+    ],
+    "common_mistakes": [
+      "❌ I must to go → ✅ I must go",
+      "❌ She musts work → ✅ She must work"
+    ]
+  },
+  "should_shouldnt": {
+    "level": "A2",
+    "title": "Should / Shouldn't",
+    "structure": "Subject + should/shouldn't + base verb",
+    "examples": [
+      "You should see a doctor.",
+      "We shouldn't waste water.",
+      "Should I call them?"
+    ],
+    "usage": [
+      "Advice: You should eat more vegetables.",
+      "Recommendation: You should watch this movie.",
+      "Expectation: The train should arrive soon."
+    ],
+    "common_mistakes": [
+      "❌ I should to go → ✅ I should go"
+    ]
+  },
+  "might": {
+    "level": "A2",
+    "title": "Might / Might not",
+    "structure": "Subject + might/might not + base verb",
+    "examples": [
+      "I might go to the party.",
+      "She might not come.",
+      "It might rain later."
+    ],
+    "usage": [
+      "Possibility (less certain than may): We might be late."
+    ],
+    "common_mistakes": [
+      "❌ I might to go → ✅ I might go"
+    ]
+  },
+  "may_vs_might": {
+    "level": "A2",
+    "title": "May and Might",
+    "structure": "Subject + may/might + base verb",
+    "examples": [
+      "I may go (more likely) vs I might go (less likely)",
+      "May I come in? (permission)"
+    ],
+    "usage": [
+      "May: possibility, permission",
+      "Might: less certain possibility"
+    ],
+    "common_mistakes": []
+  },
+  "used_to": {
+    "level": "A2",
+    "title": "Used to",
+    "structure": "Subject + used to/didn't use to + base verb",
+    "examples": [
+      "I used to play the piano.",
+      "She didn't use to like coffee.",
+      "Did you use to live in London?"
+    ],
+    "usage": [
+      "Past habits that stopped: I used to smoke.",
+      "Past states: I used to be shy."
+    ],
+    "common_mistakes": [
+      "❌ I used to went → ✅ I used to go",
+      "❌ I didn't used to → ✅ I didn't use to"
+    ]
+  },
+  "how_to_use_go": {
+    "level": "A2",
+    "title": "How to use 'go'",
+    "structure": "go + to / go + -ing / go + preposition",
+    "examples": [
+      "I go to school.",
+      "Let's go shopping.",
+      "She went home."
+    ],
+    "usage": [
+      "Go + to + place: go to work",
+      "Go + -ing (activities): go swimming",
+      "Go home (no 'to')"
+    ],
+    "common_mistakes": [
+      "❌ I go to home → ✅ I go home"
+    ]
+  },
+  "how_to_use_get": {
+    "level": "A2",
+    "title": "The different uses of 'get'",
+    "structure": "get + object / get + adjective / get to + place",
+    "examples": [
+      "I got a present (receive).",
+      "It's getting dark (become).",
+      "I got to work late (arrive)."
+    ],
+    "usage": [
+      "Get = obtain: I got a new job.",
+      "Get = become: Get ready!",
+      "Get = arrive: What time did you get home?",
+      "Get = understand (informal): I don't get it."
+    ],
+    "common_mistakes": []
+  },
+  "do_vs_make": {
+    "level": "A2",
+    "title": "Do vs Make",
+    "structure": "do + activity / make + product",
+    "examples": [
+      "Do your homework.",
+      "Do the dishes.",
+      "Make a cake.",
+      "Make a decision."
+    ],
+    "usage": [
+      "Do: work, chores, activities (do business, do a favor)",
+      "Make: creating, producing (make plans, make a mistake)"
+    ],
+    "common_mistakes": [
+      "❌ I made my homework → ✅ I did my homework"
+    ]
+  },
+  "verbs_with_two_objects": {
+    "level": "A2",
+    "title": "Verbs with two objects",
+    "structure": "Verb + indirect object + direct object / Verb + direct object + to/for + indirect object",
+    "examples": [
+      "I gave him a present.",
+      "I gave a present to him.",
+      "She bought me a coffee.",
+      "She bought a coffee for me."
+    ],
+    "usage": [
+      "Common verbs: give, send, show, tell, lend, sell, buy, get, make"
+    ],
+    "common_mistakes": []
+  },
+  "stative_vs_dynamic_verbs": {
+    "level": "A2",
+    "title": "Stative vs Dynamic Verbs",
+    "structure": "Stative verbs are not used in continuous forms",
+    "examples": [
+      "I know the answer (not I am knowing).",
+      "This soup tastes good (not is tasting)."
+    ],
+    "usage": [
+      "Stative verbs describe states: be, have, know, believe, love, hate, like, want, need, prefer, agree, disagree, belong, contain, depend, deserve, fit, include, involve, lack, matter, measure, owe, own, possess, promise, realize, recognize, remember, resemble, satisfy, seem, sound, suppose, surprise, understand"
+    ],
+    "common_mistakes": [
+      "❌ I am understanding → ✅ I understand"
+    ]
+  },
+  "phrasal_verbs_a2": {
+    "level": "A2",
+    "title": "Phrasal Verbs",
+    "structure": "Verb + particle (transitive/intransitive, separable/inseparable)",
+    "examples": [
+      "I woke up (intransitive).",
+      "Turn off the light (separable: Turn it off).",
+      "Look after the baby (inseparable)."
+    ],
+    "usage": [
+      "Separable: put on, take off, turn on, turn off",
+      "Inseparable: look for, look after, get over"
+    ],
+    "common_mistakes": []
+  },
+  "have_to_must_should_b1": {
+    "level": "B1",
+    "title": "Have to, Must, Should",
+    "structure": "",
+    "examples": [
+      "You must see that movie (strong opinion).",
+      "You have to wear a uniform (rule).",
+      "You should apologize (advice)."
+    ],
+    "usage": [
+      "Must: speaker's authority, strong necessity",
+      "Have to: external authority, rules",
+      "Should: advice, recommendation"
+    ],
+    "common_mistakes": []
+  },
+  "had_better": {
+    "level": "B1",
+    "title": "Had better... it's time",
+    "structure": "had better + base verb / it's time + past subjunctive",
+    "examples": [
+      "You'd better see a doctor (strong advice).",
+      "It's time you went to bed (past for present)."
+    ],
+    "usage": [
+      "Had better: strong advice, warning",
+      "It's time (that) + past: for recommendations"
+    ],
+    "common_mistakes": [
+      "❌ You had better to go → ✅ You had better go"
+    ]
+  },
+  "can_could_be_able_to": {
+    "level": "B1",
+    "title": "Can, Could, Be able to",
+    "structure": "",
+    "examples": [
+      "I can swim (present ability).",
+      "I could swim when I was 5 (past ability).",
+      "I will be able to swim after lessons (future ability)."
+    ],
+    "usage": [
+      "Can: present ability, permission",
+      "Could: past ability, polite request",
+      "Be able to: all tenses, especially future and perfect"
+    ],
+    "common_mistakes": []
+  },
+  "modal_verbs_of_deduction": {
+    "level": "B1",
+    "title": "Modal Verbs of Deduction",
+    "structure": "must/might/could/can't + infinitive",
+    "examples": [
+      "She must be at home (certain).",
+      "He might be late (possible).",
+      "They can't be serious (impossible)."
+    ],
+    "usage": [
+      "Must: almost certain",
+      "May/might/could: possible",
+      "Can't: impossible"
+    ],
+    "common_mistakes": []
+  },
+  "usually_used_to_be_used_to": {
+    "level": "B1",
+    "title": "Usually, Used to, Be used to, Get used to",
+    "structure": "",
+    "examples": [
+      "I usually wake up at 7 (habitual present).",
+      "I used to smoke (past habit).",
+      "I am used to waking up early (accustomed).",
+      "I am getting used to the new system (becoming accustomed)."
+    ],
+    "usage": [
+      "Usually: present habit",
+      "Used to: past habit",
+      "Be used to: accustomed to",
+      "Get used to: become accustomed"
+    ],
+    "common_mistakes": [
+      "❌ I am used to wake up → ✅ I am used to waking up"
+    ]
+  },
+  "phrasal_verbs_b1_1": {
+    "level": "B1",
+    "title": "Phrasal Verbs 1",
+    "structure": "Common phrasal verbs",
+    "examples": [
+      "Give up: stop trying",
+      "Look forward to: anticipate happily",
+      "Run out of: have no more"
+    ],
+    "usage": [
+      "Give up smoking.",
+      "I'm looking forward to the party.",
+      "We ran out of milk."
+    ],
+    "common_mistakes": []
+  },
+  "phrasal_verbs_b1_2": {
+    "level": "B1",
+    "title": "Phrasal Verbs 2",
+    "structure": "Common phrasal verbs",
+    "examples": [
+      "Take off: remove / leave ground",
+      "Put off: postpone",
+      "Call off: cancel"
+    ],
+    "usage": [
+      "Take off your shoes.",
+      "The plane took off at 3 PM.",
+      "We called off the meeting."
+    ],
+    "common_mistakes": []
+  },
+  "phrasal_verbs_b1_3": {
+    "level": "B1",
+    "title": "Phrasal Verbs 3",
+    "structure": "Common phrasal verbs",
+    "examples": [
+      "Break down: stop working",
+      "Carry on: continue",
+      "Get along: have a good relationship"
+    ],
+    "usage": [
+      "My car broke down.",
+      "Carry on working.",
+      "We get along well."
+    ],
+    "common_mistakes": []
+  },
+  "would_rather": {
+    "level": "B1",
+    "title": "Would rather & Would sooner",
+    "structure": "would rather + base verb / would rather + subject + past",
+    "examples": [
+      "I'd rather stay home.",
+      "I'd rather you didn't smoke."
+    ],
+    "usage": [
+      "Express preference: I'd rather have coffee than tea."
+    ],
+    "common_mistakes": [
+      "❌ I'd rather to go → ✅ I'd rather go"
+    ]
+  },
+  "neednt_dont_need_to": {
+    "level": "B1+",
+    "title": "Needn't, don't need to, didn't need to, needn't have",
+    "structure": "",
+    "examples": [
+      "You needn't come (not necessary).",
+      "You don't need to come (same meaning).",
+      "I didn't need to go (so I didn't).",
+      "I needn't have gone (but I did)."
+    ],
+    "usage": [
+      "Needn't/don't need to: not necessary",
+      "Didn't need to: not necessary and didn't happen",
+      "Needn't have: not necessary but happened"
+    ],
+    "common_mistakes": []
+  },
+  "past_modal_verbs_of_deduction": {
+    "level": "B1+",
+    "title": "Past Modal Verbs of Deduction",
+    "structure": "must have/might have/could have/can't have + past participle",
+    "examples": [
+      "He must have left already (certain).",
+      "She might have forgotten (possible).",
+      "They can't have arrived yet (impossible)."
+    ],
+    "usage": [
+      "Must have: almost certain about the past",
+      "Might/could have: possible",
+      "Can't have: impossible"
+    ],
+    "common_mistakes": []
+  },
+  "probability_expressions": {
+    "level": "B1+",
+    "title": "Likely, Unlikely, Bound, Definitely, Probably",
+    "structure": "",
+    "examples": [
+      "It's likely to rain.",
+      "She is bound to succeed.",
+      "They will definitely come."
+    ],
+    "usage": [
+      "Likely/unlikely: probability",
+      "Bound to: almost certain",
+      "Definitely/probably: degree of certainty"
+    ],
+    "common_mistakes": []
+  },
+  "used_to_be_used_to_get_used_to_b1": {
+    "level": "B1+",
+    "title": "Used to, Be used to, Get used to",
+    "structure": "",
+    "examples": [
+      "I used to live in London (past habit, not now).",
+      "I am used to living in London (accustomed).",
+      "I am getting used to living in London (becoming accustomed)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "would_and_used_to": {
+    "level": "B1+",
+    "title": "Would and Used to",
+    "structure": "would + infinitive / used to + infinitive",
+    "examples": [
+      "I would visit my grandma every Sunday (repeated past action).",
+      "I used to have a dog (past state)."
+    ],
+    "usage": [
+      "Would: only actions, not states",
+      "Used to: both actions and states"
+    ],
+    "common_mistakes": []
+  },
+  "verbs_of_the_senses": {
+    "level": "B1+",
+    "title": "Verbs of the Senses",
+    "structure": "look/sound/smell/taste/feel + adjective",
+    "examples": [
+      "You look tired.",
+      "This music sounds great.",
+      "The soup tastes delicious."
+    ],
+    "usage": [
+      "Describe perceptions without -ing"
+    ],
+    "common_mistakes": [
+      "❌ It is sounding good → ✅ It sounds good"
+    ]
+  },
+  "do_or_make_b1": {
+    "level": "B1+",
+    "title": "Do or Make",
+    "structure": "",
+    "examples": [
+      "Do business, do a favor, do your best",
+      "Make money, make progress, make a decision"
+    ],
+    "usage": [
+      "Do: work, activities, general tasks",
+      "Make: create, produce, food, plans"
+    ],
+    "common_mistakes": []
+  },
+  "modal_verbs_permission_b2": {
+    "level": "B2",
+    "title": "Modal Verbs: Permission, Obligation, Prohibition, Necessity",
+    "structure": "",
+    "examples": [
+      "You may leave early (permission).",
+      "You must wear a suit (obligation).",
+      "You must not smoke here (prohibition).",
+      "You need to apply in advance (necessity)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "speculation_and_deduction_b2": {
+    "level": "B2",
+    "title": "Speculation and Deduction",
+    "structure": "modal verbs + infinitive / continuous / perfect",
+    "examples": [
+      "He must be working (present).",
+      "She might have been sleeping (past continuous)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "verbs_of_the_senses_b2": {
+    "level": "B2",
+    "title": "Verbs of the Senses",
+    "structure": "",
+    "examples": [
+      "I see a bird (active perception).",
+      "I can see a bird (ability).",
+      "I am seeing the doctor (meeting)."
+    ],
+    "usage": [
+      "Some verbs have special meanings in continuous form"
+    ],
+    "common_mistakes": []
+  },
+  "get_different_meanings_b2": {
+    "level": "B2",
+    "title": "Get: Different Meanings",
+    "structure": "",
+    "examples": [
+      "Get = obtain: I got a promotion.",
+      "Get = become: Get ready!",
+      "Get = understand: I don't get it.",
+      "Get = arrive: When did you get home?",
+      "Get = bring: Can you get me a glass?"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "first_conditional_a2": {
+    "level": "A2",
+    "title": "First Conditional",
+    "structure": "If + present simple, will + base verb",
+    "examples": [
+      "If it rains, I will stay home.",
+      "If you study, you will pass.",
+      "I will call you if I arrive late."
+    ],
+    "usage": [
+      "Real/possible future situations"
+    ],
+    "common_mistakes": [
+      "❌ If I will see him → ✅ If I see him"
+    ]
+  },
+  "first_conditional_b1": {
+    "level": "B1",
+    "title": "First Conditional, Future Time Clauses",
+    "structure": "when/as soon as/until + present simple, main clause with future",
+    "examples": [
+      "When I arrive, I'll call you.",
+      "As soon as you're ready, we'll leave.",
+      "I'll wait until you finish."
+    ],
+    "usage": [
+      "Time clauses use present, not future"
+    ],
+    "common_mistakes": [
+      "❌ When I will arrive → ✅ When I arrive"
+    ]
+  },
+  "zero_and_first_conditional": {
+    "level": "B1+",
+    "title": "Zero and First Conditional",
+    "structure": "Zero: if + present, present / First: if + present, will",
+    "examples": [
+      "If you heat ice, it melts (zero).",
+      "If it rains, I will stay home (first)."
+    ],
+    "usage": [
+      "Zero: general truths",
+      "First: real future possibilities"
+    ],
+    "common_mistakes": []
+  },
+  "when_vs_if": {
+    "level": "B1+",
+    "title": "When I do vs When I have done",
+    "structure": "",
+    "examples": [
+      "When I arrive, I'll call you (action happens).",
+      "When I have finished, I'll call you (must be complete)."
+    ],
+    "usage": [
+      "Present simple: as soon as",
+      "Present perfect: after completion"
+    ],
+    "common_mistakes": []
+  },
+  "second_conditional_a2": {
+    "level": "A2",
+    "title": "Second Conditional",
+    "structure": "If + past simple, would + base verb",
+    "examples": [
+      "If I had a car, I would drive to work."
+    ],
+    "usage": [
+      "Unreal/imaginary present situations"
+    ],
+    "common_mistakes": [
+      "❌ If I would be rich → ✅ If I were rich"
+    ]
+  },
+  "second_conditional_b1": {
+    "level": "B1",
+    "title": "Second Conditional: Unreal Situations",
+    "structure": "",
+    "examples": [
+      "If I won the lottery, I'd travel the world.",
+      "If she studied more, she'd get better grades."
+    ],
+    "usage": [
+      "Unreal present/future situations"
+    ],
+    "common_mistakes": []
+  },
+  "first_and_second_conditionals": {
+    "level": "B1",
+    "title": "First and Second Conditionals",
+    "structure": "",
+    "examples": [
+      "First: If it rains, I'll stay home (possible).",
+      "Second: If it rained, I'd stay home (unlikely)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "third_conditional_b1": {
+    "level": "B1",
+    "title": "Third Conditional",
+    "structure": "If + past perfect, would have + past participle",
+    "examples": [
+      "If I had studied, I would have passed."
+    ],
+    "usage": [
+      "Unreal past situations"
+    ],
+    "common_mistakes": [
+      "❌ If I would have known → ✅ If I had known"
+    ]
+  },
+  "second_and_third_conditionals": {
+    "level": "B1+",
+    "title": "Second and Third Conditionals",
+    "structure": "",
+    "examples": [
+      "If I had a car (but I don't), I would drive (second).",
+      "If I had known (but I didn't), I would have come (third)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "unless_even_if_provided": {
+    "level": "B2",
+    "title": "Unless, Even if, Provided, As long as, etc.",
+    "structure": "",
+    "examples": [
+      "You won't pass unless you study.",
+      "Even if I had money, I wouldn't buy it.",
+      "Provided you work hard, you'll succeed."
+    ],
+    "usage": [
+      "Unless = if not",
+      "Even if = no matter if",
+      "Provided/as long as = on condition that"
+    ],
+    "common_mistakes": []
+  },
+  "all_conditionals_b2": {
+    "level": "B2",
+    "title": "All Conditionals",
+    "structure": "Mixed conditionals, alternatives to if, inversion",
+    "examples": [
+      "If I had taken the job, I would be rich now (past condition, present result).",
+      "Had I known, I would have told you (inversion without if)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "mixed_conditionals_b2": {
+    "level": "B2",
+    "title": "Mixed Conditionals",
+    "structure": "",
+    "examples": [
+      "If I were you, I wouldn't have done it (present condition, past result)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "wishes_and_regrets": {
+    "level": "B1+",
+    "title": "Wishes and Regrets",
+    "structure": "I wish / If only + past simple / past perfect / would",
+    "examples": [
+      "I wish I had more time (present).",
+      "I wish I hadn't said that (past regret).",
+      "I wish you wouldn't smoke (annoying habit)."
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ I wish I would have more time → ✅ I wish I had more time"
+    ]
+  },
+  "unreal_uses_of_past_tenses": {
+    "level": "B2",
+    "title": "Wish, Rather, If only, It's time",
+    "structure": "past simple for unreal meaning",
+    "examples": [
+      "I'd rather you didn't smoke.",
+      "It's time you went to bed."
+    ],
+    "usage": [
+      "Past tense after wish/rather to express preference or regret"
+    ],
+    "common_mistakes": []
+  },
+  "present_and_past_simple_passive": {
+    "level": "A2",
+    "title": "Present and Past Simple Passive",
+    "structure": "am/is/are + past participle (present) / was/were + past participle (past)",
+    "examples": [
+      "English is spoken here (present).",
+      "The car was repaired yesterday (past)."
+    ],
+    "usage": [
+      "When the doer is unknown or unimportant"
+    ],
+    "common_mistakes": [
+      "❌ The car repaired → ✅ The car was repaired"
+    ]
+  },
+  "passive_verb_forms": {
+    "level": "B1",
+    "title": "Passive Verb Forms",
+    "structure": "be + past participle (in different tenses)",
+    "examples": [
+      "The house is being painted (present continuous).",
+      "The work has been finished (present perfect)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "active_and_passive_voice": {
+    "level": "B1",
+    "title": "Active and Passive Voice",
+    "structure": "Active: Subject does action / Passive: Subject receives action",
+    "examples": [
+      "Shakespeare wrote Hamlet (active).",
+      "Hamlet was written by Shakespeare (passive)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "passive_voice_all_tenses": {
+    "level": "B1+",
+    "title": "The Passive Voice: All Tenses",
+    "structure": "be (in any tense) + past participle",
+    "examples": [
+      "The movie is being made now.",
+      "The decision will be made tomorrow."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "passive_with_reporting_verbs": {
+    "level": "B1+",
+    "title": "The Passive with Reporting Verbs",
+    "structure": "It is said that... / Subject is said to...",
+    "examples": [
+      "It is said that he is rich.",
+      "He is said to be rich."
+    ],
+    "usage": [
+      "Impersonal passive for opinions, beliefs"
+    ],
+    "common_mistakes": []
+  },
+  "have_something_done": {
+    "level": "B1+",
+    "title": "Have something done",
+    "structure": "have + object + past participle",
+    "examples": [
+      "I had my hair cut.",
+      "She had the car repaired."
+    ],
+    "usage": [
+      "Arrange for someone else to do something"
+    ],
+    "common_mistakes": []
+  },
+  "distancing": {
+    "level": "B2",
+    "title": "Distancing",
+    "structure": "It would seem / It appears",
+    "examples": [
+      "It would seem that he is right.",
+      "The report appears to be accurate."
+    ],
+    "usage": [
+      "Distance yourself from information"
+    ],
+    "common_mistakes": []
+  },
+  "passive_verbs_with_two_objects": {
+    "level": "B2",
+    "title": "Passive Verbs with Two Objects",
+    "structure": "Two possible passive forms",
+    "examples": [
+      "He gave me a book (active).",
+      "I was given a book / A book was given to me (passive)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "reported_speech_a2": {
+    "level": "A2",
+    "title": "Reported Speech",
+    "structure": "Reporting verb + that + clause",
+    "examples": [
+      "He said (that) he was tired."
+    ],
+    "usage": [
+      "Report what someone said"
+    ],
+    "common_mistakes": [
+      "❌ He said me that → ✅ He told me that"
+    ]
+  },
+  "indirect_speech_b1": {
+    "level": "B1",
+    "title": "Indirect Speech / Reported Speech",
+    "structure": "Backshift of tenses",
+    "examples": [
+      "Direct: 'I am tired.'",
+      "Reported: He said he was tired."
+    ],
+    "usage": [
+      "Change tense when reporting"
+    ],
+    "common_mistakes": []
+  },
+  "verbs_to_infinitive_and_ing_a1": {
+    "level": "A1",
+    "title": "Verbs + to + infinitive and verbs + -ing",
+    "structure": "Verbs followed by to or -ing",
+    "examples": [
+      "I want to go (to + infinitive).",
+      "I enjoy reading (-ing)."
+    ],
+    "usage": [
+      "Some verbs always take to, some -ing"
+    ],
+    "common_mistakes": [
+      "❌ I enjoy to read → ✅ I enjoy reading"
+    ]
+  },
+  "expressing_purpose_with_to_and_for": {
+    "level": "A2",
+    "title": "Expressing Purpose with 'to' and 'for'",
+    "structure": "to + infinitive / for + noun/-ing",
+    "examples": [
+      "I went to the store to buy milk (to).",
+      "This knife is for cutting bread (for + -ing)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "infinitives_and_gerunds_verb_patterns_a2": {
+    "level": "A2",
+    "title": "Infinitives and Gerunds: Verb Patterns",
+    "structure": "",
+    "examples": [
+      "I stopped smoking (quit).",
+      "I stopped to smoke (paused to do it)."
+    ],
+    "usage": [
+      "Some verbs change meaning"
+    ],
+    "common_mistakes": []
+  },
+  "gerund_or_infinitive_b1": {
+    "level": "B1",
+    "title": "Gerund or Infinitive",
+    "structure": "",
+    "examples": [
+      "I remember locking the door (memory of past action).",
+      "I must remember to lock the door (duty in future)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "gerund_or_infinitive_verb_patterns_b1_plus": {
+    "level": "B1+",
+    "title": "Gerund or Infinitive: Verb Patterns",
+    "structure": "",
+    "examples": [
+      "I regret saying that (past action).",
+      "I regret to say that the meeting is canceled (present information)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "would_rather_would_prefer": {
+    "level": "B1+",
+    "title": "Would rather, would prefer",
+    "structure": "would rather + base verb / would prefer + to + infinitive",
+    "examples": [
+      "I'd rather stay home than go out.",
+      "I'd prefer to stay home."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "reporting_verbs": {
+    "level": "B1+",
+    "title": "Reporting Verbs",
+    "structure": "admit + -ing / refuse + to infinitive / suggest + -ing",
+    "examples": [
+      "He admitted stealing the money.",
+      "She refused to help.",
+      "They suggested going to a restaurant."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "verb_object_infinitive_gerund": {
+    "level": "B2",
+    "title": "Verb + Object + Infinitive/Gerund",
+    "structure": "",
+    "examples": [
+      "I want you to go (object + to infinitive).",
+      "I saw him leaving (object + -ing)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "gerunds_and_infinitives_complex": {
+    "level": "B2",
+    "title": "Gerunds and Infinitives: Complex Forms",
+    "structure": "Perfect infinitive/gerund",
+    "examples": [
+      "I am sorry to have missed the meeting.",
+      "He denied having stolen the car."
+    ],
+    "usage": [
+      "Perfect forms for past events"
+    ],
+    "common_mistakes": []
+  },
+  "a_an_plurals": {
+    "level": "A1",
+    "title": "A/an, Plurals",
+    "structure": "a/an + singular noun / noun + s/es",
+    "examples": [
+      "a cat, an apple",
+      "cats, apples, boxes, babies"
+    ],
+    "usage": [
+      "Use 'a' before consonant sound, 'an' before vowel sound"
+    ],
+    "common_mistakes": [
+      "❌ a apple → ✅ an apple"
+    ]
+  },
+  "a_an_the_no_article": {
+    "level": "A1",
+    "title": "A/an, The, No Article",
+    "structure": "",
+    "examples": [
+      "I saw a dog (one of many).",
+      "The dog is barking (specific).",
+      "Life is beautiful (general)."
+    ],
+    "usage": [
+      "A/an: first mention",
+      "The: second mention, specific",
+      "No article: general ideas"
+    ],
+    "common_mistakes": []
+  },
+  "a_some_any": {
+    "level": "A1",
+    "title": "A, Some, Any",
+    "structure": "",
+    "examples": [
+      "I have a book.",
+      "I have some books.",
+      "I don't have any books."
+    ],
+    "usage": [
+      "A: singular countable",
+      "Some: positive, offers",
+      "Any: questions, negatives"
+    ],
+    "common_mistakes": []
+  },
+  "much_many_a_lot_of": {
+    "level": "A1",
+    "title": "Much, Many, A lot of",
+    "structure": "",
+    "examples": [
+      "much water (uncountable)",
+      "many books (countable)",
+      "a lot of water/books"
+    ],
+    "usage": [
+      "Much: uncountable, questions/negatives",
+      "Many: countable, questions/negatives",
+      "A lot of: all, positive"
+    ],
+    "common_mistakes": []
+  },
+  "this_that_these_those": {
+    "level": "A1",
+    "title": "This, That, These, Those",
+    "structure": "",
+    "examples": [
+      "This book (near, singular).",
+      "That book (far, singular).",
+      "These books (near, plural).",
+      "Those books (far, plural)."
+    ],
+    "usage": [
+      "Show distance"
+    ],
+    "common_mistakes": []
+  },
+  "possessive_adjectives_and_subject_pronouns": {
+    "level": "A1",
+    "title": "Possessive Adjectives and Subject Pronouns",
+    "structure": "I/my, you/your, he/his, she/her, it/its, we/our, they/their",
+    "examples": [
+      "I have a car. My car is red."
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ Me car → ✅ My car"
+    ]
+  },
+  "object_pronouns_vs_subject_pronouns": {
+    "level": "A1",
+    "title": "Object Pronouns vs Subject Pronouns",
+    "structure": "Subject: I/you/he/she/it/we/they / Object: me/you/him/her/it/us/them",
+    "examples": [
+      "I love her (subject I, object her).",
+      "She loves me."
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ Me love she → ✅ I love her"
+    ]
+  },
+  "whose_possessive_s": {
+    "level": "A1",
+    "title": "Whose, Possessive 's",
+    "structure": "Whose + noun / noun + 's + noun",
+    "examples": [
+      "Whose book is this?",
+      "It's Mike's book."
+    ],
+    "usage": [
+      "Possessive 's for people, animals"
+    ],
+    "common_mistakes": [
+      "❌ Whos book → ✅ Whose book"
+    ]
+  },
+  "subject_object_possessive_pronouns_a2": {
+    "level": "A2",
+    "title": "Subject, Object, Possessive Pronouns, Possessive Adjectives",
+    "structure": "",
+    "examples": [
+      "I (subject) like you (object).",
+      "This is my (possessive adj) book.",
+      "This book is mine (possessive pronoun)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "something_anything_nothing": {
+    "level": "A2",
+    "title": "Something, Anything, Nothing",
+    "structure": "",
+    "examples": [
+      "I have something to say.",
+      "Do you have anything to say?",
+      "I have nothing to say."
+    ],
+    "usage": [
+      "Something: positive",
+      "Anything: questions, negatives",
+      "Nothing: negative meaning"
+    ],
+    "common_mistakes": []
+  },
+  "quantifiers_a2": {
+    "level": "A2",
+    "title": "Much, Many, Little, Few, Some, Any: Quantifiers",
+    "structure": "",
+    "examples": [
+      "A little water (small amount)",
+      "A few books (small number)",
+      "Little hope (not much)",
+      "Few friends (not many)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "too_too_much_too_many_enough": {
+    "level": "A2",
+    "title": "Too, Too much, Too many, Enough",
+    "structure": "",
+    "examples": [
+      "It's too hot.",
+      "I have too much work.",
+      "There are too many people.",
+      "I have enough money."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "most_most_of_the_most": {
+    "level": "A2",
+    "title": "Most, Most of, The most",
+    "structure": "",
+    "examples": [
+      "Most people like music (general).",
+      "Most of the people here are friendly (specific group).",
+      "She is the most intelligent (superlative)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "articles_b1": {
+    "level": "B1",
+    "title": "A(n), The, No Article",
+    "structure": "",
+    "examples": [
+      "The government (unique).",
+      "Oil is expensive (general)."
+    ],
+    "usage": [
+      "The: unique, specific",
+      "No article: general, abstract"
+    ],
+    "common_mistakes": []
+  },
+  "quantifiers_b1": {
+    "level": "B1",
+    "title": "Much, Many, A lot, Little, Few, Some, Any, No: Quantifiers",
+    "structure": "",
+    "examples": [
+      "I have a lot of friends.",
+      "There is little hope.",
+      "Few people attended."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "both_all_quantifiers": {
+    "level": "B1",
+    "title": "All, Both: Quantifiers",
+    "structure": "",
+    "examples": [
+      "All students passed.",
+      "Both students passed (two)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "either_neither_both": {
+    "level": "B1",
+    "title": "Both, Either, Neither: Quantifiers",
+    "structure": "",
+    "examples": [
+      "Both options are good (two positives).",
+      "Either option is fine (one of two).",
+      "Neither option is good (none of two)."
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ I don't like neither → ✅ I like neither / I don't like either"
+    ]
+  },
+  "reflexive_pronouns": {
+    "level": "B1",
+    "title": "Reflexive Pronouns",
+    "structure": "myself, yourself, himself, herself, itself, ourselves, yourselves, themselves",
+    "examples": [
+      "I taught myself.",
+      "She looked at herself."
+    ],
+    "usage": [
+      "Reflexive: subject and object same",
+      "Emphatic: I did it myself"
+    ],
+    "common_mistakes": []
+  },
+  "quantifiers_any_no_none": {
+    "level": "B1",
+    "title": "Any, No, None: Quantifiers",
+    "structure": "",
+    "examples": [
+      "I don't have any money.",
+      "I have no money.",
+      "None of them came."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "another_other_others": {
+    "level": "B1",
+    "title": "Another, Other, Others, The other, The others",
+    "structure": "",
+    "examples": [
+      "I want another cup (additional).",
+      "The other cup (remaining one).",
+      "Some people like it, others don't."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "quantifiers_b1_plus": {
+    "level": "B1+",
+    "title": "Quantifiers: all, most, both, either, neither, any, no, none",
+    "structure": "",
+    "examples": [
+      "All of them came.",
+      "Neither of them came."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "reflexive_and_reciprocal_pronouns": {
+    "level": "B2",
+    "title": "Reflexive and Reciprocal Pronouns",
+    "structure": "each other, one another",
+    "examples": [
+      "They love each other (two).",
+      "The team supported one another (group)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "generic_or_common_gender_pronouns": {
+    "level": "B2",
+    "title": "Generic or Common-gender Pronouns",
+    "structure": "they/them as singular",
+    "examples": [
+      "If someone calls, tell them I'm busy.",
+      "Each student should bring their book."
+    ],
+    "usage": [
+      "Singular 'they' for unknown gender"
+    ],
+    "common_mistakes": []
+  },
+  "compound_nouns_and_possessive_forms": {
+    "level": "B2",
+    "title": "Compound Nouns and Possessive Forms",
+    "structure": "",
+    "examples": [
+      "a coffee shop, a bus stop",
+      "the car's engine, the company's CEO"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "possessive_s_with_time_expressions": {
+    "level": "B2",
+    "title": "Possessive 's with time expressions",
+    "structure": "",
+    "examples": [
+      "Two hours' walk",
+      "A week's vacation"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "defining_relative_clauses": {
+    "level": "A2",
+    "title": "Defining Relative Clauses",
+    "structure": "who/which/that/where + clause (essential information)",
+    "examples": [
+      "The man who called is my brother.",
+      "The book that I read was good."
+    ],
+    "usage": [
+      "No commas, essential information"
+    ],
+    "common_mistakes": []
+  },
+  "defining_and_non_defining_relative_clauses": {
+    "level": "B1",
+    "title": "Defining and Non-defining Relative Clauses",
+    "structure": "Non-defining: commas, no 'that'",
+    "examples": [
+      "My brother, who lives in London, is a doctor (non-defining).",
+      "The man who lives next door is friendly (defining)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "whatever_whenever_whoever_however": {
+    "level": "B1+",
+    "title": "Whatever, Whenever, Wherever, Whoever, However",
+    "structure": "",
+    "examples": [
+      "Whatever you do, be careful.",
+      "Whenever I see her, I smile.",
+      "Whoever did this will be punished."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "relative_clauses_b2": {
+    "level": "B2",
+    "title": "Relative Clauses: Defining and Non-defining",
+    "structure": "Preposition + whom/which",
+    "examples": [
+      "The man to whom I spoke (formal).",
+      "The man I spoke to (informal)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "this_vs_it": {
+    "level": "A1",
+    "title": "The difference between 'this' and 'it'",
+    "structure": "",
+    "examples": [
+      "This is a new phone (introducing).",
+      "It is expensive (referring back)."
+    ],
+    "usage": [
+      "This: introduce new",
+      "It: refer back"
+    ],
+    "common_mistakes": []
+  },
+  "there_is_there_are": {
+    "level": "A1",
+    "title": "There is, There are / There was, There were",
+    "structure": "",
+    "examples": [
+      "There is a cat.",
+      "There are two cats.",
+      "There was a problem.",
+      "There were many people."
+    ],
+    "usage": [
+      "Existential 'there'"
+    ],
+    "common_mistakes": [
+      "❌ There is two cats → ✅ There are two cats"
+    ]
+  },
+  "there_or_it": {
+    "level": "A1",
+    "title": "There or It",
+    "structure": "",
+    "examples": [
+      "There is a book on the table (existence).",
+      "It is a good book (identity)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "preparatory_they_it": {
+    "level": "B2",
+    "title": "There and it: Preparatory subjects",
+    "structure": "",
+    "examples": [
+      "It is important to study (preparatory 'it').",
+      "There seems to be a problem (preparatory 'there')."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "so_neither_auxiliary_verbs": {
+    "level": "A2",
+    "title": "So, Neither: So am I, neither do I, etc.",
+    "structure": "so + auxiliary + subject / neither + auxiliary + subject",
+    "examples": [
+      "I love coffee. So do I.",
+      "I don't smoke. Neither do I."
+    ],
+    "usage": [
+      "Agreeing"
+    ],
+    "common_mistakes": []
+  },
+  "question_tags": {
+    "level": "B1",
+    "title": "Question Tags",
+    "structure": "Auxiliary + pronoun",
+    "examples": [
+      "You're coming, aren't you?",
+      "He didn't call, did he?"
+    ],
+    "usage": [
+      "Confirm information"
+    ],
+    "common_mistakes": []
+  },
+  "auxiliary_verbs_different_uses": {
+    "level": "B1+",
+    "title": "Auxiliary Verbs: Different uses",
+    "structure": "",
+    "examples": [
+      "I do like it (emphasis).",
+      "Do sit down (polite imperative)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "have_auxiliary_or_main_verb": {
+    "level": "B2",
+    "title": "Have: Auxiliary or main verb",
+    "structure": "",
+    "examples": [
+      "I have seen it (auxiliary).",
+      "I have a car (main verb)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "ellipsis_and_substitution": {
+    "level": "B2",
+    "title": "Ellipsis and Substitution",
+    "structure": "Omission/replacement of words to avoid repetition",
+    "examples": [
+      "She can sing, and he can too (ellipsis).",
+      "I think so (substitution)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "adjectives_a1": {
+    "level": "A1",
+    "title": "Adjectives",
+    "structure": "be + adjective / adjective + noun",
+    "examples": [
+      "She is happy.",
+      "a big house"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "adverbs_of_manner": {
+    "level": "A1",
+    "title": "Adverbs of Manner (slowly) or Adjectives (slow)?",
+    "structure": "Adverb modifies verb (-ly usually)",
+    "examples": [
+      "She drives slow (adj after be) → She drives slowly (adv after action verb)."
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ She drives careful → ✅ She drives carefully"
+    ]
+  },
+  "comparative_adjectives": {
+    "level": "A1",
+    "title": "Comparative Adjectives",
+    "structure": "adjective + er / more + adjective",
+    "examples": [
+      "bigger, more interesting"
+    ],
+    "usage": [
+      "Compare two things"
+    ],
+    "common_mistakes": []
+  },
+  "superlative_adjectives": {
+    "level": "A1",
+    "title": "Superlative Adjectives",
+    "structure": "the + adjective + est / the most + adjective",
+    "examples": [
+      "the biggest, the most interesting"
+    ],
+    "usage": [
+      "Compare more than two"
+    ],
+    "common_mistakes": []
+  },
+  "comparative_and_superlative_adverbs_adjectives_a2": {
+    "level": "A2",
+    "title": "Comparative and Superlative Adjectives and Adverbs",
+    "structure": "",
+    "examples": [
+      "faster (adj) vs more quickly (adv)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "no_longer_any_longer_anymore": {
+    "level": "A2",
+    "title": "No longer, any longer, anymore",
+    "structure": "",
+    "examples": [
+      "I no longer smoke.",
+      "I don't smoke anymore."
+    ],
+    "usage": [
+      "Emphasize stopping"
+    ],
+    "common_mistakes": []
+  },
+  "comparative_and_superlative_adverbs_b1": {
+    "level": "B1",
+    "title": "Comparative and Superlative Adjectives and Adverbs",
+    "structure": "",
+    "examples": [
+      "faster (adj), more quickly (adv)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "compound_adjectives_with_numbers": {
+    "level": "B1",
+    "title": "Compound Adjectives with Numbers",
+    "structure": "number + singular noun (hyphenated)",
+    "examples": [
+      "a two-day trip",
+      "a five-year plan"
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ a two-days trip → ✅ a two-day trip"
+    ]
+  },
+  "the_plus_comparative_the_plus_comparative": {
+    "level": "B1+",
+    "title": "The ... the ... comparatives",
+    "structure": "the + comparative, the + comparative",
+    "examples": [
+      "The more you study, the more you learn.",
+      "The sooner, the better."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "ed_ing_adjectives": {
+    "level": "B1",
+    "title": "-Ed/-ing Adjectives: Adjectives from verbs",
+    "structure": "",
+    "examples": [
+      "I am bored (how I feel).",
+      "The movie is boring (how it is)."
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ I am boring (if I am not interesting) → ✅ I am bored"
+    ]
+  },
+  "participles_as_adjectives": {
+    "level": "B1+",
+    "title": "Participles as Adjectives: -ed / -ing adjectives",
+    "structure": "",
+    "examples": [
+      "a tired look (ed)",
+      "a tiring day (ing)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "so_such": {
+    "level": "B1",
+    "title": "So, Such, Such a, So much, So many",
+    "structure": "so + adjective / such + noun phrase",
+    "examples": [
+      "So big!",
+      "Such a big house!"
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ She is so a nice person → ✅ She is such a nice person"
+    ]
+  },
+  "so_such_b1_plus": {
+    "level": "B1+",
+    "title": "So, such (a), so much, so many",
+    "structure": "",
+    "examples": [
+      "so much water, so many people"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "adjectives_without_noun": {
+    "level": "B1+",
+    "title": "Adjectives without noun",
+    "structure": "the + adjective = plural noun",
+    "examples": [
+      "The rich = rich people",
+      "The poor = poor people"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "adjective_order": {
+    "level": "B1+",
+    "title": "Adjective Order",
+    "structure": "Opinion - Size - Age - Shape - Color - Origin - Material - Purpose",
+    "examples": [
+      "a beautiful large old round red French wooden dining table"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "already_still_yet": {
+    "level": "B1+",
+    "title": "Already, Still, Yet",
+    "structure": "",
+    "examples": [
+      "I have already finished.",
+      "I am still waiting.",
+      "I haven't finished yet."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "pretty_rather_quite_fairly": {
+    "level": "B1+",
+    "title": "Pretty, Rather, Quite, Fairly",
+    "structure": "Degree adverbs",
+    "examples": [
+      "pretty good (quite), rather cold (more than expected)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "modifying_comparatives": {
+    "level": "B2",
+    "title": "Modifying Comparatives",
+    "structure": "much/far/a lot/a little/a bit/slightly",
+    "examples": [
+      "much better, a little older, far more interesting"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "compound_adjectives_b2": {
+    "level": "B2",
+    "title": "Compound Adjectives",
+    "structure": "Hyphenated combinations",
+    "examples": [
+      "a well-known author, a middle-aged man, a last-minute decision"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "inversion_with_negative_adverbials": {
+    "level": "B2",
+    "title": "Inversion with Negative Adverbials",
+    "structure": "Negative adverbial + auxiliary + subject",
+    "examples": [
+      "Never have I seen such beauty.",
+      "Rarely does he arrive on time."
+    ],
+    "usage": [
+      "Formal emphasis"
+    ],
+    "common_mistakes": []
+  },
+  "conjunctions_a1": {
+    "level": "A1",
+    "title": "Conjunctions: And, But, Or, So, Because",
+    "structure": "",
+    "examples": [
+      "I like tea and coffee.",
+      "I like tea but not coffee.",
+      "I like tea or coffee."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "however_although_because_so": {
+    "level": "A2",
+    "title": "However, Although, Because, So, and Time Connectors",
+    "structure": "",
+    "examples": [
+      "Although it rained, we went out.",
+      "We went out however it rained."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "clauses_of_contrast_purpose_reason": {
+    "level": "B1",
+    "title": "Clauses of Contrast, Purpose and Reason",
+    "structure": "",
+    "examples": [
+      "I went to bed early because I was tired (reason).",
+      "I went to bed early to rest (purpose).",
+      "Although I was tired, I stayed up (contrast)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "clauses_of_contrast_and_purpose_b1_plus": {
+    "level": "B1+",
+    "title": "Clauses of Contrast and Purpose",
+    "structure": "",
+    "examples": [
+      "in spite of, despite, even though",
+      "in order to, so as to"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "clauses_of_contrast_purpose_reason_result_b2": {
+    "level": "B2",
+    "title": "Clauses of Contrast, Purpose, Reason and Result",
+    "structure": "",
+    "examples": [
+      "He was so tired that he fell asleep (result)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "discourse_markers": {
+    "level": "B2",
+    "title": "Discourse Markers: Linking Words",
+    "structure": "",
+    "examples": [
+      "However, therefore, moreover, nevertheless, consequently, on the other hand"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "participle_clauses": {
+    "level": "B2",
+    "title": "Participle Clauses",
+    "structure": "Present/past participle phrases",
+    "examples": [
+      "Walking home, I saw an accident.",
+      "Written in 1990, the book is famous."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "prepositions_of_time": {
+    "level": "A1",
+    "title": "At, In, On: Prepositions of Time",
+    "structure": "",
+    "examples": [
+      "at 5 PM, in May, on Monday"
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ in Monday → ✅ on Monday"
+    ]
+  },
+  "prepositions_of_place": {
+    "level": "A1",
+    "title": "At, In, On: Prepositions of Place",
+    "structure": "",
+    "examples": [
+      "at the door, in the room, on the table"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "prepositions_of_location_a1": {
+    "level": "A1",
+    "title": "Next to, Under, Between, In front of, Behind, Over, etc.",
+    "structure": "",
+    "examples": [
+      "The book is on the table.",
+      "The cat is under the chair."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "prepositions_of_movement": {
+    "level": "A2",
+    "title": "Prepositions of Movement",
+    "structure": "",
+    "examples": [
+      "walk across the street, go through the tunnel, run around the park"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "on_time_vs_in_time_at_the_end_vs_in_the_end": {
+    "level": "A2",
+    "title": "On time vs In time, At the end vs In the end",
+    "structure": "",
+    "examples": [
+      "I arrived on time (punctual).",
+      "I arrived in time to see the show (before it ended).",
+      "At the end of the movie (specific point).",
+      "In the end, we decided to stay (finally)."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "verb_preposition": {
+    "level": "B1",
+    "title": "Verb + Preposition",
+    "structure": "",
+    "examples": [
+      "wait for, ask for, belong to, depend on, laugh at, listen to"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "adjective_preposition": {
+    "level": "B1",
+    "title": "Adjective + Preposition",
+    "structure": "",
+    "examples": [
+      "interested in, afraid of, good at, responsible for, married to"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "during_for_while": {
+    "level": "B1",
+    "title": "During, For, While",
+    "structure": "",
+    "examples": [
+      "during the movie (period), for two hours (duration), while I was sleeping (clause)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "for_since_from": {
+    "level": "B1",
+    "title": "For, Since, From",
+    "structure": "",
+    "examples": [
+      "for five years (duration), since 2010 (starting point), from 9 to 5 (range)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "common_noun_preposition_collocations": {
+    "level": "B2",
+    "title": "Common Noun + Preposition Collocations",
+    "structure": "",
+    "examples": [
+      "reason for, cause of, difference between, interest in, advantage of"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "questions_word_order": {
+    "level": "A1",
+    "title": "Questions: Word order and question words",
+    "structure": "Question word + auxiliary + subject + main verb",
+    "examples": [
+      "Where do you live?",
+      "What are you doing?"
+    ],
+    "usage": [],
+    "common_mistakes": [
+      "❌ Where you live? → ✅ Where do you live?"
+    ]
+  },
+  "asking_questions_a2": {
+    "level": "A2",
+    "title": "Asking questions in English: Question forms",
+    "structure": "",
+    "examples": [
+      "Do you like coffee?",
+      "You like coffee, don't you?"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "subject_questions": {
+    "level": "A2",
+    "title": "Subject questions, questions with preposition",
+    "structure": "No auxiliary when question word is subject",
+    "examples": [
+      "Who wrote this book? (subject)",
+      "Who did you see? (object)",
+      "Where are you from? (preposition at end)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "questions_different_types": {
+    "level": "B1+",
+    "title": "Questions: Different types",
+    "structure": "direct, indirect, tag, rhetorical",
+    "examples": [
+      "Where is the station? (direct)",
+      "Could you tell me where the station is? (indirect)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "indirect_questions": {
+    "level": "B1+",
+    "title": "Indirect questions",
+    "structure": "Can you tell me + statement order",
+    "examples": [
+      "Do you know where he lives? (not where does he live)"
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "adverbs_of_frequency": {
+    "level": "A1",
+    "title": "Adverbs of frequency with present simple",
+    "structure": "always, usually, often, sometimes, rarely, never",
+    "examples": [
+      "I always wake up early."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "basic_word_order": {
+    "level": "A1",
+    "title": "Basic word order in English",
+    "structure": "Subject - Verb - Object (SVO)",
+    "examples": [
+      "I love you.",
+      "The cat chased the mouse."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "position_of_adverbs": {
+    "level": "B1+",
+    "title": "Position of adverbs and adverb phrases",
+    "structure": "Front, mid, end position",
+    "examples": [
+      "Quickly, she ran home.",
+      "She quickly ran home.",
+      "She ran home quickly."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  },
+  "cleft_sentences": {
+    "level": "B2",
+    "title": "Cleft sentences",
+    "structure": "It is/was... that/who",
+    "examples": [
+      "It was John who called.",
+      "What I need is a break."
+    ],
+    "usage": [],
+    "common_mistakes": []
+  }
+}
