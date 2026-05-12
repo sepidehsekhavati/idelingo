@@ -7,7 +7,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "core"))
 
 from UserManager import UserManager
-from OfflineDictionary import OfflineDictionary
+# OfflineDictionary حذف شد - برای اندروید مشکل داشت
 
 # Colors
 COLORS = {
@@ -27,11 +27,8 @@ COLORS = {
 
 # مسیر لوگو
 base_dir = os.path.dirname(__file__)
-
-# آدرس‌دهی کاملاً نسبی که هم روی ویندوز، هم لینوکس و هم اندروید کار می‌کند
 LOGO_PATH = os.path.join(base_dir, "assets", "logo.png")
 
-# برای اطمینان، اگر فایل نبود، یک لاگ چاپ کن (اختیاری)
 if not os.path.exists(LOGO_PATH):
     print(f"Warning: Logo not found at {LOGO_PATH}")
 
@@ -42,12 +39,10 @@ class IDELingoApp:
         self.current_user = None
         self.page = None
         self.current_index = 0
-        self.offline_dict = None
         
     def init_backend(self):
         try:
             self.user_manager = UserManager()
-            self.offline_dict = OfflineDictionary()
             return True
         except Exception as e:
             print(f"Error: {e}")
@@ -104,7 +99,6 @@ class IDELingoApp:
             self.show_error_page()
     
     def _close_dialog(self, dialog):
-        """بستن دیالوگ"""
         if dialog:
             dialog.open = False
             self.page.update()
@@ -277,7 +271,6 @@ class IDELingoApp:
         hour = datetime.now().hour
         greeting = "Good Evening" if hour > 18 else "Good Afternoon" if hour > 12 else "Good Morning"
         
-        # کارت‌های آمار
         stats = ft.Column(spacing=10)
         row1 = ft.Row([
             self._stat_card("📚", f"{progress['words_learned']}", f"/{self.current_user['daily_goal']}", "Words Today"),
@@ -393,7 +386,6 @@ class IDELingoApp:
             padding=ft.padding.all(20)
         )
         
-        # فیلترها
         self.vocab_search = ft.TextField(hint_text="Search word or meaning...", width=180, height=40, 
                                          border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'])
         self.vocab_lang_filter = ft.Dropdown(
@@ -452,7 +444,6 @@ class IDELingoApp:
                 def make_toggle(m, d):
                     return lambda e: self._toggle_meaning(d, m)
                 
-                # تعیین آیکون سختی
                 diff_icon = "🟢" if word[6] == "easy" else "🟡" if word[6] == "medium" else "🔴"
                 
                 word_card = ft.Container(
@@ -493,7 +484,6 @@ class IDELingoApp:
         text_widget.update()
     
     def edit_vocabulary_word(self, word_data):
-        # ساده شده - در صورت نیاز می‌توان دیالوگ edit را کامل کرد
         self.page.snack_bar = ft.SnackBar(content=ft.Text(f"Edit: {word_data[2]}"), bgcolor=COLORS['info'])
         self.page.snack_bar.open = True
         self.page.update()
@@ -526,13 +516,6 @@ class IDELingoApp:
         lang_dropdown = ft.Dropdown(options=[ft.dropdown.Option("English"), ft.dropdown.Option("Spanish"), ft.dropdown.Option("French"), 
                                              ft.dropdown.Option("German"), ft.dropdown.Option("Japanese")], value="English", width=300)
         diff_dropdown = ft.Dropdown(options=[ft.dropdown.Option("easy"), ft.dropdown.Option("medium"), ft.dropdown.Option("hard")], value="medium", width=300)
-        dict_result = ft.Text("", size=12, color=COLORS['text_secondary'])
-        
-        def search_dict(e):
-            if word_field.value:
-                result = self.offline_dict.get_meaning_with_pronunciation(word_field.value)
-                dict_result.value = result[:200] + ("..." if len(result) > 200 else "")
-                dict_result.update()
         
         def save_word(e):
             if word_field.value and meaning_field.value:
@@ -548,11 +531,9 @@ class IDELingoApp:
             title=ft.Text("Add New Word", color=COLORS['accent']),
             content=ft.Container(
                 content=ft.Column([
-                    word_field, meaning_field, example_field, lang_dropdown, diff_dropdown,
-                    ft.ElevatedButton("🔍 Search in Dictionary", on_click=search_dict, bgcolor=COLORS['info']),
-                    dict_result
+                    word_field, meaning_field, example_field, lang_dropdown, diff_dropdown
                 ], spacing=15, scroll=ft.ScrollMode.AUTO),
-                padding=20, width=380, height=500
+                padding=20, width=380, height=450
             ),
             actions=[
                 ft.TextButton("Cancel", on_click=lambda e: self._close_dialog(dialog)),
@@ -909,7 +890,6 @@ class IDELingoApp:
                 results_container.controls.append(ft.Text("No users found", color=COLORS['text_secondary']))
             else:
                 for user in users:
-                    # user: (id, username, avatar, level, xp_total)
                     user_card = ft.Container(
                         content=ft.Row([
                             ft.Text(user[2], size=32),
@@ -1024,7 +1004,6 @@ class IDELingoApp:
         self.page.clean()
         self.current_index = 7
         
-        # General Tab
         goal_dropdown = ft.Dropdown(label="Daily Learning Goal", options=[ft.dropdown.Option(str(i)) for i in [5,10,15,20,25,30]],
             value=str(self.current_user['daily_goal']), width=200, color=COLORS['text'])
         
