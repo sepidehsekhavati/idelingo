@@ -1,7 +1,7 @@
 # core/UserManager.py
 from Database import Database
 from GrammarEnhancer import GrammarEnhancer
-# from OfflineDictionary import OfflineDictionary  # حذف شد
+from OfflineDictionary import OfflineDictionary  # این خط رو فعال کن
 from AdvancedGrammarChecker import AdvancedGrammarChecker
 from PlanManager import PlanManager
 import hashlib
@@ -12,6 +12,22 @@ from datetime import datetime, timedelta
 class UserManager:
     def __init__(self):
         try:
+            self.db = Database()
+            self.grammar_enhancer = GrammarEnhancer()
+            self.offline_dict = OfflineDictionary()  # این خط رو فعال کن
+            self.grammar_checker = AdvancedGrammarChecker()
+            self.plan_manager = PlanManager(self.db)
+            self.current_user = None
+            
+            print("🎉 UserManager با موفقیت راه‌اندازی شد!")
+            print("✅ تمام کلاس‌ها لود شدند")
+            
+        except Exception as e:
+            print(f"❌ Error in UserManager: {e}")
+            import traceback
+            traceback.print_exc()
+            raise
+   
             self.db = Database()
             self.grammar_enhancer = GrammarEnhancer()
             # self.offline_dict = OfflineDictionary()  # حذف شد
