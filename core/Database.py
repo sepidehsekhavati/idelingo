@@ -11,7 +11,8 @@ class Database:
         self.cursor = self.conn.cursor()
         self.create_tables()
         self.migrate_database()
-    
+        self.create_indexes()  # اضافه شد برای بهبود سرعت
+
     def migrate_database(self):
         try:
             self.cursor.execute("PRAGMA table_info(vocabulary)")
@@ -24,7 +25,7 @@ class Database:
             self.conn.commit()
         except Exception as e:
             print(f"Migration error: {e}")
-    
+
     def create_tables(self):
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL,
@@ -61,6 +62,34 @@ class Database:
             user_id INTEGER NOT NULL, message TEXT NOT NULL, corrected_text TEXT,
             suggestions TEXT, timestamp TEXT NOT NULL)''')
         self.conn.commit()
-    
+
+    def create_indexes(self):
+        """ایجاد ایندکس‌ها برای بهبود سرعت جستجو"""
+        try:
+            # ایندکس برای vocabulary
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_vocabulary_user_id ON vocabulary(user_id)')
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_vocabulary_word ON vocabulary(word)')
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_vocabulary_language ON vocabulary(language)')
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_vocabulary_difficulty ON vocabulary(difficulty)')
+            
+            # ایندکس برای phrases
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_phrases_user_id ON phrases(user_id)')
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_phrases_phrase ON phrases(phrase)')
+            
+            # ایندکس برای practice_chat
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_practice_chat_user_id ON practice_chat(user_id)')
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_practice_chat_timestamp ON practice_chat(timestamp)')
+            
+            # ایندکس برای daily_progress
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_daily_progress_user_date ON daily_progress(user_id, date)')
+            
+            # ایندکس برای user_plans
+            self.cursor.execute('CREATE INDEX IF NOT EXISTS idx_user_plans_user_id ON user_plans(user_id)')
+            
+            self.conn.commit()
+            print("✅ Database indexes created successfully")
+        except Exception as e:
+            print(f"Error creating indexes: {e}")
+
     def close(self):
         self.conn.close()
