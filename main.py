@@ -40,7 +40,9 @@ class IDELingoApp:
         self.page = None
         self.current_index = 0
         self.offline_dict = None
-        
+        # برای رفرش گرامر بعد از تغییر favorite
+        self.refresh_grammar_callback = None
+
     def init_backend(self):
         try:
             self.user_manager = UserManager()
@@ -49,10 +51,10 @@ class IDELingoApp:
         except Exception as e:
             print(f"Error: {e}")
             return False
-    
+
     def main(self, page: ft.Page):
         self.page = page
-        
+
         page.title = "IDELingo"
         page.theme_mode = ft.ThemeMode.DARK
         page.padding = 0
@@ -61,7 +63,7 @@ class IDELingoApp:
         page.window_resizable = False
         page.bgcolor = COLORS['bg']
         page.theme = ft.Theme(color_scheme_seed=COLORS['accent'], use_material3=True)
-        
+
         # اپ بار با لوگو
         if os.path.exists(LOGO_PATH):
             try:
@@ -94,17 +96,17 @@ class IDELingoApp:
                     ft.IconButton(icon=ft.icons.PERSON, icon_color=COLORS['text_secondary'], on_click=self.show_profile)
                 ]
             )
-        
+
         if self.init_backend():
             self.show_login()
         else:
             self.show_error_page()
-    
+
     def _close_dialog(self, dialog):
         if dialog:
             dialog.open = False
             self.page.update()
-    
+
     def show_error_page(self):
         self.page.clean()
         self.page.add(
@@ -119,10 +121,10 @@ class IDELingoApp:
             )
         )
         self.page.update()
-    
+
     def show_login(self):
         self.page.clean()
-        
+
         # لوگو در صفحه ورود
         logo_container = ft.Container()
         if os.path.exists(LOGO_PATH):
@@ -149,7 +151,7 @@ class IDELingoApp:
                 ], horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=10),
                 margin=ft.margin.only(top=50, bottom=30)
             )
-        
+
         username_field = ft.TextField(
             label="Username or Email", prefix_icon=ft.icons.PERSON,
             border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'],
@@ -161,7 +163,7 @@ class IDELingoApp:
             color=COLORS['text'], width=300, height=50
         )
         error_text = ft.Text("", color=COLORS['danger'], size=14, visible=False)
-        
+
         def do_login(e):
             if not username_field.value or not password_field.value:
                 error_text.value = "Please fill all fields"
@@ -176,10 +178,11 @@ class IDELingoApp:
                 error_text.value = msg
                 error_text.visible = True
                 self.page.update()
-        
+
         def show_register(e):
             self.show_register()
-        
+
+        # اضافه کردن scroll به صفحه لاگین
         self.page.add(
             ft.Container(
                 content=ft.Column([
@@ -192,15 +195,15 @@ class IDELingoApp:
                         ], horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=15),
                         alignment=ft.alignment.center
                     )
-                ], horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=20),
+                ], horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=20, scroll=ft.ScrollMode.AUTO),
                 expand=True
             )
         )
         self.page.update()
-    
+
     def show_register(self):
         self.page.clean()
-        
+
         # لوگو در صفحه ثبت نام
         logo_container = ft.Container()
         if os.path.exists(LOGO_PATH):
@@ -219,12 +222,12 @@ class IDELingoApp:
                 content=ft.Text("IDELingo", size=28, weight=ft.FontWeight.BOLD, color=COLORS['accent']),
                 margin=ft.margin.only(top=30, bottom=20)
             )
-        
+
         username_field = ft.TextField(label="Username", prefix_icon=ft.icons.PERSON, color=COLORS['text'], width=300, height=50)
         email_field = ft.TextField(label="Email", prefix_icon=ft.icons.EMAIL, color=COLORS['text'], width=300, height=50)
         password_field = ft.TextField(label="Password (min 6 chars)", prefix_icon=ft.icons.LOCK, password=True, can_reveal_password=True, color=COLORS['text'], width=300, height=50)
         error_text = ft.Text("", color=COLORS['danger'], size=14, visible=False)
-        
+
         def do_register(e):
             if not username_field.value or not email_field.value or not password_field.value:
                 error_text.value = "Please fill all fields"
@@ -246,7 +249,7 @@ class IDELingoApp:
                 error_text.value = msg
                 error_text.visible = True
                 self.page.update()
-        
+
         self.page.add(
             ft.Container(
                 content=ft.Column([
@@ -264,15 +267,15 @@ class IDELingoApp:
             )
         )
         self.page.update()
-    
+
     def show_dashboard(self):
         self.page.clean()
         self.current_index = 0
-        
+
         progress = self.user_manager.get_daily_progress(self.current_user['id'])
         hour = datetime.now().hour
         greeting = "Good Evening" if hour > 18 else "Good Afternoon" if hour > 12 else "Good Morning"
-        
+
         stats = ft.Column(spacing=10)
         row1 = ft.Row([
             self._stat_card("📚", f"{progress['words_learned']}", f"/{self.current_user['daily_goal']}", "Words Today"),
@@ -285,10 +288,10 @@ class IDELingoApp:
             self._stat_card("🏆", f"{self.current_user['level']}", "", "Level"),
         ], alignment=ft.MainAxisAlignment.SPACE_EVENLY, spacing=5)
         stats.controls.extend([row1, row2])
-        
+
         quick_add = self._quick_add_section()
         nav_bar = self._bottom_nav_bar()
-        
+
         self.page.add(
             ft.Column([
                 ft.Container(
@@ -305,7 +308,7 @@ class IDELingoApp:
             ], spacing=10, expand=True)
         )
         self.page.update()
-    
+
     def _stat_card(self, icon, value, subtitle, label):
         return ft.Container(
             content=ft.Column([
@@ -316,23 +319,28 @@ class IDELingoApp:
             ], horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=3),
             bgcolor=COLORS['card'], border_radius=10, padding=ft.padding.all(8), width=110, height=100
         )
-    
+
     def _quick_add_section(self):
         word_field = ft.TextField(hint_text="Word", border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'], expand=True, height=45)
         meaning_field = ft.TextField(hint_text="Meaning", border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'], expand=True, height=45)
         lang_dropdown = ft.Dropdown(
-            options=[ft.dropdown.Option("English"), ft.dropdown.Option("Spanish"), ft.dropdown.Option("French"), 
+            options=[ft.dropdown.Option("English"), ft.dropdown.Option("Spanish"), ft.dropdown.Option("French"),
                      ft.dropdown.Option("German"), ft.dropdown.Option("Japanese")],
             value="English", width=100, height=45, bgcolor=COLORS['bg'], color=COLORS['text']
         )
-        
+
         def add_word(e):
-            if not word_field.value or not meaning_field.value:
-                self.page.snack_bar = ft.SnackBar(content=ft.Text("Please enter both word and meaning"), bgcolor=COLORS['warning'])
+            if not word_field.value:
+                self.page.snack_bar = ft.SnackBar(content=ft.Text("❌ Please enter a word!"), bgcolor=COLORS['danger'])
                 self.page.snack_bar.open = True
                 self.page.update()
                 return
-            
+            if not meaning_field.value:
+                self.page.snack_bar = ft.SnackBar(content=ft.Text("❌ Please enter a meaning!"), bgcolor=COLORS['danger'])
+                self.page.snack_bar.open = True
+                self.page.update()
+                return
+
             self.user_manager.add_vocabulary(self.current_user['id'], word_field.value, meaning_field.value, "", lang_dropdown.value, "medium", "", "")
             self.current_user['xp_total'] += 10
             word_field.value = ""
@@ -341,7 +349,7 @@ class IDELingoApp:
             self.page.snack_bar.open = True
             self.page.update()
             self.show_dashboard()
-        
+
         return ft.Container(
             content=ft.Column([
                 ft.Text("➕ Quick Add Word", size=16, weight=ft.FontWeight.BOLD, color=COLORS['text']),
@@ -349,7 +357,7 @@ class IDELingoApp:
             ], spacing=10),
             bgcolor=COLORS['card'], border_radius=12, padding=ft.padding.all(15), margin=ft.margin.symmetric(horizontal=20)
         )
-    
+
     def _bottom_nav_bar(self):
         items = [
             (ft.icons.HOME, "Home", 0),
@@ -365,7 +373,7 @@ class IDELingoApp:
             content=ft.Row([self._nav_button(icon, label, idx) for icon, label, idx in items], alignment=ft.MainAxisAlignment.SPACE_AROUND),
             bgcolor=COLORS['sidebar'], padding=ft.padding.symmetric(vertical=8), border_radius=ft.border_radius.only(top_left=15, top_right=15)
         )
-    
+
     def _nav_button(self, icon, label, index):
         is_selected = (self.current_index == index)
         return ft.IconButton(
@@ -375,23 +383,28 @@ class IDELingoApp:
             on_click=lambda e, i=index: self.nav_change(i),
             tooltip=label
         )
-    
+
     def show_vocabulary(self):
         self.page.clean()
         self.current_index = 1
-        
+
+        # هدر جدید: آیکون جستجو در چپ، عنوان در وسط، دکمه + در راست
         header_frame = ft.Container(
             content=ft.Row([
-                ft.Text("📝 Vocabulary Manager", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent']),
+                ft.IconButton(icon=ft.icons.SEARCH, icon_color=COLORS['accent'], icon_size=24,
+                              on_click=lambda e: self.show_search_dialog("vocabulary")),
+                ft.Text("📝 Vocabulary Manager", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent'], expand=True, text_align=ft.TextAlign.CENTER),
                 ft.IconButton(icon=ft.icons.ADD, icon_color=COLORS['success'], icon_size=30, on_click=lambda e: self.add_vocabulary_dialog())
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
             padding=ft.padding.all(20)
         )
-        
-        self.vocab_search = ft.TextField(hint_text="Search word or meaning...", width=180, height=40, 
+
+        # فیلترها و جستجو (حذف شدند و به جای آن دکمه جستجو در هدر قرار گرفت)
+        # اما برای حفظ فیلتر زبان و سختی، آن‌ها را نگه می‌داریم
+        self.vocab_search = ft.TextField(hint_text="Search word or meaning...", width=180, height=40,
                                          border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'])
         self.vocab_lang_filter = ft.Dropdown(
-            options=[ft.dropdown.Option("All"), ft.dropdown.Option("English"), ft.dropdown.Option("Spanish"), 
+            options=[ft.dropdown.Option("All"), ft.dropdown.Option("English"), ft.dropdown.Option("Spanish"),
                      ft.dropdown.Option("French"), ft.dropdown.Option("German"), ft.dropdown.Option("Japanese")],
             value="All", width=100, height=40, bgcolor=COLORS['bg'], color=COLORS['text']
         )
@@ -399,19 +412,19 @@ class IDELingoApp:
             options=[ft.dropdown.Option("All"), ft.dropdown.Option("easy"), ft.dropdown.Option("medium"), ft.dropdown.Option("hard")],
             value="All", width=80, height=40, bgcolor=COLORS['bg'], color=COLORS['text']
         )
-        
+
         filter_frame = ft.Container(
             content=ft.Row([self.vocab_search, self.vocab_lang_filter, self.vocab_diff_filter], spacing=10),
             padding=ft.padding.symmetric(horizontal=20, vertical=10)
         )
-        
+
         self.vocab_search.on_change = self.refresh_vocabulary_list
         self.vocab_lang_filter.on_change = self.refresh_vocabulary_list
         self.vocab_diff_filter.on_change = self.refresh_vocabulary_list
-        
+
         self.vocab_list_container = ft.Column(spacing=10, scroll=ft.ScrollMode.AUTO, expand=True)
         nav_bar = self._bottom_nav_bar()
-        
+
         self.page.add(
             ft.Column([
                 header_frame,
@@ -421,33 +434,65 @@ class IDELingoApp:
             ], spacing=10, expand=True)
         )
         self.refresh_vocabulary_list(None)
-    
+
+    def show_search_dialog(self, target):
+        """دیالوگ ساده برای جستجو (در صورت نیاز)"""
+        search_field = ft.TextField(hint_text="Search...", width=300)
+        result_text = ft.Text("", size=14)
+        def do_search(e):
+            query = search_field.value
+            if not query:
+                return
+            if target == "vocabulary":
+                # جستجو در لغات
+                words = self.user_manager.get_vocabulary(self.current_user['id'], {'search': query})
+                if words:
+                    result_text.value = f"🔍 Found {len(words)} words containing '{query}'"
+                else:
+                    result_text.value = f"❌ No words found for '{query}'"
+            elif target == "phrases":
+                phrases = self.user_manager.get_phrases(self.current_user['id'], query)
+                if phrases:
+                    result_text.value = f"🔍 Found {len(phrases)} phrases containing '{query}'"
+                else:
+                    result_text.value = f"❌ No phrases found for '{query}'"
+            result_text.update()
+        dialog = ft.AlertDialog(
+            title=ft.Text(f"Search {target.capitalize()}"),
+            content=ft.Column([search_field, result_text], spacing=10),
+            actions=[ft.TextButton("Search", on_click=do_search), ft.TextButton("Close", on_click=lambda e: self._close_dialog(dialog))]
+        )
+        self.page.dialog = dialog
+        dialog.open = True
+        self.page.update()
+
     def refresh_vocabulary_list(self, e):
         if not self.vocab_list_container:
             return
         self.vocab_list_container.controls.clear()
-        
+
         filters = {
             'search': self.vocab_search.value if self.vocab_search.value else None,
             'language': self.vocab_lang_filter.value if self.vocab_lang_filter.value != "All" else None,
             'difficulty': self.vocab_diff_filter.value if self.vocab_diff_filter.value != "All" else None
         }
         filters = {k: v for k, v in filters.items() if v}
-        
+
         words = self.user_manager.get_vocabulary(self.current_user['id'], filters)
-        
+
         if not words:
             self.vocab_list_container.controls.append(ft.Container(content=ft.Text("No words yet. Add your first word!", color=COLORS['text_secondary']), padding=ft.padding.all(40)))
         else:
-            for word in words[:50]:
+            # کاهش تعداد آیتم‌ها برای بهبود سرعت (20 عدد)
+            for word in words[:20]:
                 actual_meaning = word[3]
                 meaning_display = ft.Text("❓", size=14, color=COLORS['text_secondary'])
-                
+
                 def make_toggle(m, d):
                     return lambda e: self._toggle_meaning(d, m)
-                
+
                 diff_icon = "🟢" if word[6] == "easy" else "🟡" if word[6] == "medium" else "🔴"
-                
+
                 word_card = ft.Container(
                     content=ft.Row([
                         ft.Column([
@@ -463,9 +508,9 @@ class IDELingoApp:
                         ft.Column([
                             ft.Text(f"🌐 {word[5]}", size=11, color=COLORS['text_muted']),
                             ft.Row([
-                                ft.IconButton(icon=ft.icons.EDIT, icon_size=18, icon_color=COLORS['info'], 
+                                ft.IconButton(icon=ft.icons.EDIT, icon_size=18, icon_color=COLORS['info'],
                                             on_click=lambda e, w=word: self.edit_vocabulary_word(w)),
-                                ft.IconButton(icon=ft.icons.DELETE, icon_size=18, icon_color=COLORS['danger'], 
+                                ft.IconButton(icon=ft.icons.DELETE, icon_size=18, icon_color=COLORS['danger'],
                                             on_click=lambda e, wid=word[0]: self.delete_word(wid)),
                             ], spacing=0)
                         ], horizontal_alignment=ft.CrossAxisAlignment.END, spacing=3),
@@ -473,9 +518,9 @@ class IDELingoApp:
                     bgcolor=COLORS['card'], border_radius=10, padding=ft.padding.all(12)
                 )
                 self.vocab_list_container.controls.append(word_card)
-        
+
         self.page.update()
-    
+
     def _toggle_meaning(self, text_widget, meaning):
         if text_widget.value == "❓":
             text_widget.value = meaning[:50] + ("..." if len(meaning) > 50 else "")
@@ -484,12 +529,12 @@ class IDELingoApp:
             text_widget.value = "❓"
             text_widget.color = COLORS['text_secondary']
         text_widget.update()
-    
+
     def edit_vocabulary_word(self, word_data):
         self.page.snack_bar = ft.SnackBar(content=ft.Text(f"Edit: {word_data[2]}"), bgcolor=COLORS['info'])
         self.page.snack_bar.open = True
         self.page.update()
-    
+
     def delete_word(self, word_id):
         def confirm(e):
             confirm_dialog.open = False
@@ -498,7 +543,7 @@ class IDELingoApp:
             self.page.snack_bar = ft.SnackBar(content=ft.Text("✅ Word deleted!"), bgcolor=COLORS['success'])
             self.page.snack_bar.open = True
             self.page.update()
-        
+
         confirm_dialog = ft.AlertDialog(
             title=ft.Text("Delete Word", color=COLORS['warning']),
             content=ft.Text("Are you sure you want to delete this word?"),
@@ -510,34 +555,42 @@ class IDELingoApp:
         self.page.dialog = confirm_dialog
         confirm_dialog.open = True
         self.page.update()
-    
+
     def add_vocabulary_dialog(self):
         word_field = ft.TextField(label="Word", width=300)
         meaning_field = ft.TextField(label="Meaning", width=300, multiline=True, min_lines=2, max_lines=3)
         example_field = ft.TextField(label="Example (optional)", width=300)
-        lang_dropdown = ft.Dropdown(options=[ft.dropdown.Option("English"), ft.dropdown.Option("Spanish"), ft.dropdown.Option("French"), 
+        lang_dropdown = ft.Dropdown(options=[ft.dropdown.Option("English"), ft.dropdown.Option("Spanish"), ft.dropdown.Option("French"),
                                              ft.dropdown.Option("German"), ft.dropdown.Option("Japanese")], value="English", width=300)
         diff_dropdown = ft.Dropdown(options=[ft.dropdown.Option("easy"), ft.dropdown.Option("medium"), ft.dropdown.Option("hard")], value="medium", width=300)
-        
-        # اضافه کردن بخش دیکشنری
+
         dict_result = ft.Text("", size=12, color=COLORS['text_secondary'])
-        
+
         def search_dict(e):
             if word_field.value:
                 result = self.offline_dict.get_meaning_with_pronunciation(word_field.value)
                 dict_result.value = result[:300] + ("..." if len(result) > 300 else "")
                 dict_result.update()
-                
+
         def save_word(e):
-            if word_field.value and meaning_field.value:
-                self.user_manager.add_vocabulary(self.current_user['id'], word_field.value, meaning_field.value, 
-                                                  example_field.value or "", lang_dropdown.value, diff_dropdown.value, "", "")
-                self._close_dialog(dialog)
-                self.refresh_vocabulary_list(None)
-                self.page.snack_bar = ft.SnackBar(content=ft.Text(f"✅ '{word_field.value}' added!"), bgcolor=COLORS['success'])
+            if not word_field.value:
+                self.page.snack_bar = ft.SnackBar(content=ft.Text("❌ Please enter a word!"), bgcolor=COLORS['danger'])
                 self.page.snack_bar.open = True
                 self.page.update()
-        
+                return
+            if not meaning_field.value:
+                self.page.snack_bar = ft.SnackBar(content=ft.Text("❌ Please enter a meaning!"), bgcolor=COLORS['danger'])
+                self.page.snack_bar.open = True
+                self.page.update()
+                return
+            self.user_manager.add_vocabulary(self.current_user['id'], word_field.value, meaning_field.value,
+                                              example_field.value or "", lang_dropdown.value, diff_dropdown.value, "", "")
+            self._close_dialog(dialog)
+            self.refresh_vocabulary_list(None)
+            self.page.snack_bar = ft.SnackBar(content=ft.Text(f"✅ '{word_field.value}' added!"), bgcolor=COLORS['success'])
+            self.page.snack_bar.open = True
+            self.page.update()
+
         dialog = ft.AlertDialog(
             title=ft.Text("Add New Word", color=COLORS['accent']),
             content=ft.Container(
@@ -556,34 +609,34 @@ class IDELingoApp:
         self.page.dialog = dialog
         dialog.open = True
         self.page.update()
-    
+
     def show_grammar(self):
         self.page.clean()
         self.current_index = 2
-        
+
         topics = self.user_manager.get_all_grammar_topics()
-        
+
         search_field = ft.TextField(hint_text="Search grammar rules...", prefix_icon=ft.icons.SEARCH, expand=True, height=45,
                                    border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'])
-        
+
         grammar_content = ft.Column(spacing=8, scroll=ft.ScrollMode.AUTO, expand=True)
-        
-        def filter_grammar(e):
+
+        def filter_grammar(e=None):
             query = search_field.value.lower() if search_field.value else ""
             grammar_content.controls.clear()
-            
+
             filtered_topics = topics
             if query:
                 filtered_topics = [t for t in topics if query in t.lower()]
-            
-            for topic in filtered_topics[:50]:
+
+            for topic in filtered_topics[:30]:  # کاهش تعداد برای سرعت
                 info = self.user_manager.get_grammar_info(topic)
                 title = info.get('title', topic.replace('_', ' ').title()) if info else topic.replace('_', ' ').title()
                 level = info.get('level', 'beginner') if info else 'beginner'
                 level_icon = "🔰" if level == 'beginner' else "📘" if level == 'intermediate' else "🎓"
                 is_fav = self.user_manager.is_grammar_favorite(topic)
                 fav_icon = "❤️" if is_fav else "🤍"
-                
+
                 btn = ft.Container(
                     content=ft.Row([
                         ft.Text(f"{level_icon} {fav_icon}", size=14),
@@ -591,18 +644,18 @@ class IDELingoApp:
                         ft.Icon(ft.icons.CHEVRON_RIGHT, color=COLORS['text_muted'], size=18)
                     ]),
                     bgcolor=COLORS['card'], border_radius=8, padding=ft.padding.all(12),
-                    on_click=lambda e, t=topic: self.open_grammar_topic(t)
+                    on_click=lambda e, t=topic: self.open_grammar_topic(t, filter_grammar)  # ارسال callback
                 )
                 grammar_content.controls.append(btn)
-            
+
             if not filtered_topics:
                 grammar_content.controls.append(ft.Container(content=ft.Text("No grammar rules found.", color=COLORS['text_secondary']), padding=ft.padding.all(40)))
-            
+
             self.page.update()
-        
+
         search_field.on_change = filter_grammar
         nav_bar = self._bottom_nav_bar()
-        
+
         self.page.add(
             ft.Column([
                 ft.Container(content=ft.Text("📖 Grammar Library", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent']), padding=ft.padding.all(20)),
@@ -612,24 +665,24 @@ class IDELingoApp:
                 nav_bar
             ], spacing=10, expand=True)
         )
-        
+
         filter_grammar(None)
-    
-    def open_grammar_topic(self, topic_key):
+
+    def open_grammar_topic(self, topic_key, refresh_callback=None):
         info = self.user_manager.get_grammar_info(topic_key)
         if not info:
             return
-        
+
         level_icon = "🔰" if info.get('level') == 'beginner' else "📘" if info.get('level') == 'intermediate' else "🎓"
         is_fav = self.user_manager.is_grammar_favorite(topic_key)
-        
+
         notes = self.user_manager.get_grammar_notes(topic_key)
         notes_column = ft.Column(spacing=5)
         for note in notes[-5:]:
             notes_column.controls.append(ft.Text(f"📝 {note['note'][:50]}...", size=11, color=COLORS['text_secondary']))
-        
+
         note_field = ft.TextField(hint_text="Write a note...", multiline=True, min_lines=2, max_lines=3, width=300)
-        
+
         def save_note(e):
             if note_field.value:
                 self.user_manager.save_grammar_note(topic_key, note_field.value)
@@ -642,7 +695,7 @@ class IDELingoApp:
                 self.page.snack_bar = ft.SnackBar(content=ft.Text("✅ Note saved!"), bgcolor=COLORS['success'])
                 self.page.snack_bar.open = True
                 self.page.update()
-        
+
         def toggle_favorite(e):
             nonlocal is_fav
             if is_fav:
@@ -656,13 +709,16 @@ class IDELingoApp:
                 fav_btn.icon = ft.icons.FAVORITE
                 fav_btn.icon_color = COLORS['danger']
             dialog.update()
-        
+            # رفرش لیست گرامر پس از تغییر favorite
+            if refresh_callback:
+                refresh_callback()
+
         fav_btn = ft.IconButton(
             icon=ft.icons.FAVORITE if is_fav else ft.icons.FAVORITE_BORDER,
             icon_color=COLORS['danger'] if is_fav else COLORS['text_secondary'],
             on_click=toggle_favorite
         )
-        
+
         content = ft.Column([
             ft.Text("📐 Structure", weight=ft.FontWeight.BOLD, color=COLORS['accent']),
             ft.Text(info.get('structure', ''), size=13, color=COLORS['text_secondary']),
@@ -681,7 +737,7 @@ class IDELingoApp:
             note_field,
             ft.ElevatedButton("💾 Save Note", on_click=save_note, bgcolor=COLORS['success'])
         ], spacing=10, scroll=ft.ScrollMode.AUTO)
-        
+
         dialog = ft.AlertDialog(
             title=ft.Row([ft.Text(f"{level_icon} ", size=14), ft.Text(info.get('title', topic_key), color=COLORS['accent'], expand=True), fav_btn]),
             content=ft.Container(content=content, padding=15, width=400, height=550),
@@ -690,16 +746,16 @@ class IDELingoApp:
         self.page.dialog = dialog
         dialog.open = True
         self.page.update()
-    
+
     def show_practice(self):
         self.page.clean()
         self.current_index = 3
-        
+
         text_input = ft.TextField(multiline=True, min_lines=4, max_lines=6, hint_text="Write a sentence in English...",
             border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'], expand=True)
         result_text = ft.Text("", color=COLORS['text_secondary'], size=13)
         correction_var = ft.Checkbox(label="AI Auto-correct (spelling & grammar)", value=True, check_color=COLORS['accent'])
-        
+
         def check_grammar(e):
             text = text_input.value
             if not text or not text.strip():
@@ -707,25 +763,25 @@ class IDELingoApp:
                 result_text.color = COLORS['warning']
                 self.page.update()
                 return
-            
+
             if correction_var.value:
                 corrected, feedback = self.user_manager.check_grammar_offline(text)
             else:
                 corrected, feedback = text, "✅ Message saved (auto-correct disabled)"
-            
+
             self.user_manager.save_practice_message(self.current_user['id'], text, corrected, feedback)
             self.user_manager.add_xp(self.current_user['id'], 5)
-            
+
             if corrected != text:
                 result_text.value = f"✨ Suggested: \"{corrected}\"\n\n💡 {feedback} (+5 XP)"
                 result_text.color = COLORS['warning']
             else:
                 result_text.value = f"✅ {feedback} (+5 XP)"
                 result_text.color = COLORS['success']
-            
+
             text_input.value = ""
             self.page.update()
-        
+
         history = self.user_manager.get_practice_history(self.current_user['id'])
         history_col = ft.Column(spacing=8, scroll=ft.ScrollMode.AUTO)
         if history:
@@ -739,13 +795,13 @@ class IDELingoApp:
                     ], spacing=3),
                     bgcolor=COLORS['card'], border_radius=6, padding=ft.padding.all(8)
                 ))
-        
+
         nav_bar = self._bottom_nav_bar()
-        
+
         self.page.add(
             ft.Column([
                 ft.Container(content=ft.Text("💬 AI Writing Practice", size=22, weight=ft.FontWeight.BOLD, color=COLORS['accent']), padding=ft.padding.all(20)),
-                ft.Container(content=ft.Text("Write sentences and get intelligent AI corrections! (100% offline)", 
+                ft.Container(content=ft.Text("Write sentences and get intelligent AI corrections! (100% offline)",
                                             size=12, color=COLORS['text_secondary'], text_align=ft.TextAlign.CENTER), padding=ft.padding.symmetric(horizontal=20)),
                 ft.Container(content=ft.Column([
                     text_input,
@@ -760,37 +816,42 @@ class IDELingoApp:
             ], spacing=10, expand=True)
         )
         self.page.update()
-    
+
     def show_phrases(self):
         self.page.clean()
         self.current_index = 4
-        
+
+        # هدر جدید مشابه vocabulary
         header_frame = ft.Container(
             content=ft.Row([
-                ft.Text("💬 My Phrase Library", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent']),
+                ft.IconButton(icon=ft.icons.SEARCH, icon_color=COLORS['accent'], icon_size=24,
+                              on_click=lambda e: self.show_search_dialog("phrases")),
+                ft.Text("💬 My Phrase Library", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent'], expand=True, text_align=ft.TextAlign.CENTER),
                 ft.IconButton(icon=ft.icons.ADD, icon_color=COLORS['success'], icon_size=30, on_click=lambda e: self.add_phrase_dialog())
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
             padding=ft.padding.all(20)
         )
-        
-        search_field = ft.TextField(hint_text="Search phrases...", prefix_icon=ft.icons.SEARCH, expand=True, height=45,
-                                   border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'])
-        
+
+        # فیلد جستجوی قدیمی را حذف نمی‌کنیم بلکه آن را در هدر جدید با دکمه جستجو جایگزین کردیم.
+        # برای حفظ فیلترها، دیگر نیازی به فیلد جستجوی متنی نیست، بنابراین حذف می‌کنیم.
+        # (اما اگر کاربر مایل به جستجوی مستقیم است، می‌توان همان دکمه جستجو را نگه داشت)
+        # در اینجا فقط دکمه جستجو در هدر قرار داده شده است.
+
         self.phrases_container = ft.Column(spacing=10, scroll=ft.ScrollMode.AUTO, expand=True)
         nav_bar = self._bottom_nav_bar()
-        
+
         def refresh_phrases(e=None):
             self.phrases_container.controls.clear()
-            search_text = search_field.value if search_field.value else ""
-            phrases = self.user_manager.get_phrases(self.current_user['id'], search_text)
-            
+            # جستجو از طریق دکمه جداگانه انجام می‌شود، در اینجا همه عبارات را نشان می‌دهیم
+            phrases = self.user_manager.get_phrases(self.current_user['id'], None)
+
             if not phrases:
                 self.phrases_container.controls.append(ft.Container(
                     content=ft.Text("No phrases yet. Click '+ Add Phrase' to start learning!", color=COLORS['text_secondary'], text_align=ft.TextAlign.CENTER),
                     padding=ft.padding.all(40)
                 ))
             else:
-                for idx, phrase in enumerate(phrases[:30], 1):
+                for idx, phrase in enumerate(phrases[:20], 1):  # کاهش تعداد برای سرعت
                     phrase_card = ft.Container(
                         content=ft.Column([
                             ft.Row([
@@ -801,7 +862,7 @@ class IDELingoApp:
                             ft.Row([
                                 ft.Text(f"🏷️ {phrase[4]}" if phrase[4] else "", size=10, color=COLORS['text_muted']),
                                 ft.Text(f"📅 {phrase[6][:10]}" if phrase[6] else "", size=10, color=COLORS['text_muted']),
-                                ft.IconButton(icon=ft.icons.DELETE, icon_size=18, icon_color=COLORS['danger'], 
+                                ft.IconButton(icon=ft.icons.DELETE, icon_size=18, icon_color=COLORS['danger'],
                                             on_click=lambda e, pid=phrase[0]: self.delete_phrase(pid))
                             ], spacing=10)
                         ], spacing=5),
@@ -809,41 +870,43 @@ class IDELingoApp:
                     )
                     self.phrases_container.controls.append(phrase_card)
             self.page.update()
-        
-        search_field.on_change = refresh_phrases
-        
+
         self.page.add(
             ft.Column([
                 header_frame,
-                ft.Container(content=search_field, padding=ft.padding.symmetric(horizontal=20)),
                 ft.Container(content=self.phrases_container, expand=True, padding=ft.padding.symmetric(horizontal=20)),
                 nav_bar
             ], spacing=10, expand=True)
         )
         refresh_phrases(None)
-    
+
     def add_phrase_dialog(self):
         phrase_field = ft.TextField(label="Phrase / Sentence *", multiline=True, min_lines=2, max_lines=4, width=350)
         meaning_field = ft.TextField(label="Translation / Meaning *", multiline=True, min_lines=2, max_lines=4, width=350)
         tags_field = ft.TextField(label="Tags (comma separated)", hint_text="e.g., greeting, travel, business", width=350)
         notes_field = ft.TextField(label="Notes (optional)", multiline=True, min_lines=2, max_lines=3, width=350)
-        
+
         def save_phrase(e):
             phrase = phrase_field.value
             meaning = meaning_field.value
-            if not phrase or not meaning:
-                self.page.snack_bar = ft.SnackBar(content=ft.Text("Please enter both phrase and meaning"), bgcolor=COLORS['warning'])
+            if not phrase:
+                self.page.snack_bar = ft.SnackBar(content=ft.Text("❌ Please enter a phrase!"), bgcolor=COLORS['danger'])
                 self.page.snack_bar.open = True
                 self.page.update()
                 return
-            
+            if not meaning:
+                self.page.snack_bar = ft.SnackBar(content=ft.Text("❌ Please enter a meaning!"), bgcolor=COLORS['danger'])
+                self.page.snack_bar.open = True
+                self.page.update()
+                return
+
             self.user_manager.add_phrase(self.current_user['id'], phrase, meaning, tags_field.value or "", notes_field.value or "")
             self._close_dialog(dialog)
             self.show_phrases()
             self.page.snack_bar = ft.SnackBar(content=ft.Text("✅ Phrase added!"), bgcolor=COLORS['success'])
             self.page.snack_bar.open = True
             self.page.update()
-        
+
         dialog = ft.AlertDialog(
             title=ft.Text("Add New Phrase", color=COLORS['accent']),
             content=ft.Container(
@@ -860,7 +923,7 @@ class IDELingoApp:
         self.page.dialog = dialog
         dialog.open = True
         self.page.update()
-    
+
     def delete_phrase(self, phrase_id):
         def confirm(e):
             self._close_dialog(confirm_dialog)
@@ -869,7 +932,7 @@ class IDELingoApp:
             self.page.snack_bar = ft.SnackBar(content=ft.Text("✅ Phrase deleted!"), bgcolor=COLORS['success'])
             self.page.snack_bar.open = True
             self.page.update()
-        
+
         confirm_dialog = ft.AlertDialog(
             title=ft.Text("Delete Phrase", color=COLORS['warning']),
             content=ft.Text("Are you sure you want to delete this phrase?"),
@@ -881,15 +944,15 @@ class IDELingoApp:
         self.page.dialog = confirm_dialog
         confirm_dialog.open = True
         self.page.update()
-    
+
     def show_community(self):
         self.page.clean()
         self.current_index = 5
-        
+
         search_field = ft.TextField(hint_text="Enter username...", prefix_icon=ft.icons.SEARCH, width=250, height=45,
                                    border_color=COLORS['text_muted'], focused_border_color=COLORS['accent'], color=COLORS['text'])
         results_container = ft.Column(spacing=10, scroll=ft.ScrollMode.AUTO, expand=True)
-        
+
         def search_users(e):
             results_container.controls.clear()
             query = search_field.value
@@ -897,7 +960,7 @@ class IDELingoApp:
                 results_container.controls.append(ft.Text("Enter at least 2 characters to search", color=COLORS['text_secondary']))
                 self.page.update()
                 return
-            
+
             users = self.user_manager.search_users(query, self.current_user['id'])
             if not users:
                 results_container.controls.append(ft.Text("No users found", color=COLORS['text_secondary']))
@@ -916,10 +979,10 @@ class IDELingoApp:
                     )
                     results_container.controls.append(user_card)
             self.page.update()
-        
+
         search_field.on_submit = search_users
         nav_bar = self._bottom_nav_bar()
-        
+
         self.page.add(
             ft.Column([
                 ft.Container(content=ft.Text("👥 Community", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent']), padding=ft.padding.all(20)),
@@ -930,7 +993,7 @@ class IDELingoApp:
             ], spacing=10, expand=True)
         )
         self.page.update()
-    
+
     def view_user_profile(self, target_id):
         profile, error = self.user_manager.get_user_public_profile(target_id)
         if error:
@@ -938,7 +1001,7 @@ class IDELingoApp:
             self.page.snack_bar.open = True
             self.page.update()
             return
-        
+
         dialog = ft.AlertDialog(
             title=ft.Text(f"{profile['username']}'s Profile", color=COLORS['accent']),
             content=ft.Container(
@@ -962,15 +1025,15 @@ class IDELingoApp:
         self.page.dialog = dialog
         dialog.open = True
         self.page.update()
-    
+
     def show_leaderboard(self):
         self.page.clean()
         self.current_index = 6
-        
+
         leaderboard = self.user_manager.get_leaderboard(50)
-        
+
         leaderboard_col = ft.Column(spacing=8, scroll=ft.ScrollMode.AUTO)
-        
+
         leaderboard_col.controls.append(
             ft.Container(
                 content=ft.Row([
@@ -982,11 +1045,11 @@ class IDELingoApp:
                 padding=ft.padding.all(10), bgcolor=COLORS['sidebar'], border_radius=8
             )
         )
-        
+
         for i, (name, avatar, level, score) in enumerate(leaderboard, 1):
             medal = "🥇" if i == 1 else "🥈" if i == 2 else "🥉" if i == 3 else f"{i}."
             is_current_user = (name == self.current_user['username'])
-            
+
             leaderboard_col.controls.append(
                 ft.Container(
                     content=ft.Row([
@@ -1000,9 +1063,9 @@ class IDELingoApp:
                     border_radius=8, padding=ft.padding.all(10)
                 )
             )
-        
+
         nav_bar = self._bottom_nav_bar()
-        
+
         self.page.add(
             ft.Column([
                 ft.Container(content=ft.Text("🏆 Leaderboard", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent']), padding=ft.padding.all(20)),
@@ -1012,21 +1075,21 @@ class IDELingoApp:
             ], spacing=10, expand=True)
         )
         self.page.update()
-    
+
     def show_settings(self):
         self.page.clean()
         self.current_index = 7
-        
+
         goal_dropdown = ft.Dropdown(label="Daily Learning Goal", options=[ft.dropdown.Option(str(i)) for i in [5,10,15,20,25,30]],
             value=str(self.current_user['daily_goal']), width=200, color=COLORS['text'])
-        
+
         def update_goal(e):
             self.user_manager.update_profile(self.current_user['id'], daily_goal=int(goal_dropdown.value))
             self.current_user['daily_goal'] = int(goal_dropdown.value)
             self.page.snack_bar = ft.SnackBar(content=ft.Text("✅ Goal updated!"), bgcolor=COLORS['success'])
             self.page.snack_bar.open = True
             self.page.update()
-        
+
         avatars = ["😊", "😎", "🤓", "👨‍🎓", "👩‍🎓", "🐱", "🐶", "🦊", "🐼", "⭐"]
         avatar_row = ft.Row([ft.Container(
             content=ft.Text(a, size=32),
@@ -1034,7 +1097,7 @@ class IDELingoApp:
             border_radius=10, padding=10,
             on_click=lambda e, av=a: self._update_avatar(av)
         ) for a in avatars], spacing=10, wrap=True)
-        
+
         # Plan Tab
         user_plan = self.user_manager.get_user_plan(self.current_user['id'])
         plan_type_dropdown = ft.Dropdown(
@@ -1043,15 +1106,15 @@ class IDELingoApp:
             value=user_plan.get('plan_type', 'daily'),
             width=200, color=COLORS['text']
         )
-        
+
         goals_container = ft.Column(spacing=10)
         goal_entries = {}
-        
+
         def update_plan_inputs(e):
             goals_container.controls.clear()
             plan_type = plan_type_dropdown.value
             goal_entries.clear()
-            
+
             if plan_type == 'weekly':
                 goals = [("📚 Words per week", "weekly_goal_words", user_plan.get('weekly_goal_words', 20)),
                          ("📖 Grammar rules per week", "weekly_goal_grammar", user_plan.get('weekly_goal_grammar', 5)),
@@ -1063,7 +1126,7 @@ class IDELingoApp:
                     ])
                     goals_container.controls.append(row)
                     goal_entries[key] = row.controls[1]
-                    
+
             elif plan_type == 'monthly':
                 goals = [("📚 Words per month", "monthly_goal_words", user_plan.get('monthly_goal_words', 80)),
                          ("📖 Grammar rules per month", "monthly_goal_grammar", user_plan.get('monthly_goal_grammar', 20)),
@@ -1075,7 +1138,7 @@ class IDELingoApp:
                     ])
                     goals_container.controls.append(row)
                     goal_entries[key] = row.controls[1]
-                    
+
             else:  # daily or custom
                 goals = [("📚 Words per day", "custom_goal_words", user_plan.get('custom_goal_words', 10)),
                          ("📖 Grammar rules per day", "custom_goal_grammar", user_plan.get('custom_goal_grammar', 3)),
@@ -1087,7 +1150,7 @@ class IDELingoApp:
                     ])
                     goals_container.controls.append(row)
                     goal_entries[key] = row.controls[1]
-                
+
                 if plan_type == 'custom':
                     interval_row = ft.Row([
                         ft.Text("⏱️ Interval (days):", width=180, color=COLORS['text_secondary']),
@@ -1095,11 +1158,11 @@ class IDELingoApp:
                     ])
                     goals_container.controls.append(interval_row)
                     goal_entries['custom_interval_days'] = interval_row.controls[1]
-            
+
             self.page.update()
-        
+
         plan_type_dropdown.on_change = update_plan_inputs
-        
+
         def save_plan(e):
             plan_type = plan_type_dropdown.value
             updates = {}
@@ -1114,19 +1177,19 @@ class IDELingoApp:
             self.page.snack_bar = ft.SnackBar(content=ft.Text("✅ Plan updated!"), bgcolor=COLORS['success'])
             self.page.snack_bar.open = True
             self.page.update()
-        
+
         # Privacy Tab
         privacy = self.user_manager.get_privacy_settings(self.current_user['id'])
         public_profile = ft.Checkbox(label="Make my profile public", value=privacy['profile_public'], check_color=COLORS['accent'])
-        
+
         def toggle_privacy(e):
             self.user_manager.update_privacy(self.current_user['id'], public_profile.value)
             self.page.snack_bar = ft.SnackBar(content=ft.Text("✅ Privacy settings updated!"), bgcolor=COLORS['success'])
             self.page.snack_bar.open = True
             self.page.update()
-        
+
         public_profile.on_change = toggle_privacy
-        
+
         # Logout
         def logout(e):
             def confirm(e):
@@ -1144,7 +1207,7 @@ class IDELingoApp:
             self.page.dialog = logout_dialog
             logout_dialog.open = True
             self.page.update()
-        
+
         def delete_account_data(e):
             def confirm(e):
                 self._close_dialog(confirm_dialog)
@@ -1155,7 +1218,7 @@ class IDELingoApp:
                 self.page.snack_bar.open = True
                 self.page.update()
                 self.show_dashboard()
-            
+
             confirm_dialog = ft.AlertDialog(
                 title=ft.Text("Clear Data", color=COLORS['warning']),
                 content=ft.Text("This will delete all your vocabulary, phrases, and practice history. This cannot be undone!"),
@@ -1167,7 +1230,7 @@ class IDELingoApp:
             self.page.dialog = confirm_dialog
             confirm_dialog.open = True
             self.page.update()
-        
+
         # تب‌ها
         tabs = ft.Tabs(
             selected_index=0,
@@ -1211,9 +1274,9 @@ class IDELingoApp:
             ],
             expand=True
         )
-        
+
         nav_bar = self._bottom_nav_bar()
-        
+
         self.page.add(
             ft.Column([
                 ft.Container(content=ft.Text("⚙️ Settings", size=24, weight=ft.FontWeight.BOLD, color=COLORS['accent']), padding=ft.padding.all(20)),
@@ -1221,9 +1284,9 @@ class IDELingoApp:
                 nav_bar
             ], spacing=10, expand=True)
         )
-        
+
         update_plan_inputs(None)
-    
+
     def _update_avatar(self, new_avatar):
         self.user_manager.update_profile(self.current_user['id'], avatar=new_avatar)
         self.current_user['avatar'] = new_avatar
@@ -1231,7 +1294,7 @@ class IDELingoApp:
         self.page.snack_bar.open = True
         self.page.update()
         self.show_settings()
-    
+
     def show_profile(self, e):
         stats = self.user_manager.get_grammar_stats()
         words_count = self.user_manager.db.cursor.execute("SELECT COUNT(*) FROM vocabulary WHERE user_id = ?", (self.current_user['id'],)).fetchone()[0]
@@ -1240,7 +1303,10 @@ class IDELingoApp:
             phrases_count = self.user_manager.db.cursor.execute("SELECT COUNT(*) FROM phrases WHERE user_id = ?", (self.current_user['id'],)).fetchone()[0]
         except:
             pass
-        
+
+        # تعداد favorite‌های گرامر
+        favorites_count = len(self.user_manager.get_grammar_favorites())
+
         dialog = ft.AlertDialog(
             title=ft.Text("User Profile", color=COLORS['accent']),
             content=ft.Container(
@@ -1258,7 +1324,7 @@ class IDELingoApp:
                     ft.Row([
                         ft.Column([ft.Text("📚 Words", size=12), ft.Text(str(words_count), size=16, weight=ft.FontWeight.BOLD)], horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True),
                         ft.Column([ft.Text("💬 Phrases", size=12), ft.Text(str(phrases_count), size=16, weight=ft.FontWeight.BOLD)], horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True),
-                        ft.Column([ft.Text("📖 Grammar", size=12), ft.Text(str(stats['total_rules']), size=16, weight=ft.FontWeight.BOLD)], horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True),
+                        ft.Column([ft.Text("⭐ Favorites", size=12), ft.Text(str(favorites_count), size=16, weight=ft.FontWeight.BOLD)], horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True),
                     ]),
                 ], spacing=10),
                 padding=20, width=380
@@ -1268,7 +1334,7 @@ class IDELingoApp:
         self.page.dialog = dialog
         dialog.open = True
         self.page.update()
-    
+
     def nav_change(self, index):
         self.current_index = index
         if index == 0:
