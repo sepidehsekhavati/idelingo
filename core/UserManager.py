@@ -1,7 +1,7 @@
 # core/UserManager.py
 from Database import Database
 from GrammarEnhancer import GrammarEnhancer
-from OfflineDictionary import OfflineDictionary  # این خط رو فعال کن
+from OfflineDictionary import OfflineDictionary
 from AdvancedGrammarChecker import AdvancedGrammarChecker
 from PlanManager import PlanManager
 import hashlib
@@ -14,23 +14,7 @@ class UserManager:
         try:
             self.db = Database()
             self.grammar_enhancer = GrammarEnhancer()
-            self.offline_dict = OfflineDictionary()  # این خط رو فعال کن
-            self.grammar_checker = AdvancedGrammarChecker()
-            self.plan_manager = PlanManager(self.db)
-            self.current_user = None
-            
-            print("🎉 UserManager با موفقیت راه‌اندازی شد!")
-            print("✅ تمام کلاس‌ها لود شدند")
-            
-        except Exception as e:
-            print(f"❌ Error in UserManager: {e}")
-            import traceback
-            traceback.print_exc()
-            raise
-   
-            self.db = Database()
-            self.grammar_enhancer = GrammarEnhancer()
-            # self.offline_dict = OfflineDictionary()  # حذف شد
+            self.offline_dict = OfflineDictionary()
             self.grammar_checker = AdvancedGrammarChecker()
             self.plan_manager = PlanManager(self.db)
             self.current_user = None
@@ -60,48 +44,35 @@ class UserManager:
             return False
     
     def register(self, username, email, password):
-        """ثبت نام کاربر جدید"""
         try:
             now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             password_hash = self.hash_password(password)
-            
             self.db.cursor.execute(
                 'INSERT INTO users (username, email, password_hash, created_at, last_active) VALUES (?, ?, ?, ?, ?)',
                 (username, email, password_hash, now, now)
             )
             self.db.conn.commit()
             user_id = self.db.cursor.lastrowid
-            
-            # ایجاد تنظیمات حریم خصوصی
-            self.db.cursor.execute(
-                'INSERT INTO privacy_settings (user_id, profile_public) VALUES (?, 1)',
-                (user_id,)
-            )
+            self.db.cursor.execute('INSERT INTO privacy_settings (user_id, profile_public) VALUES (?, 1)', (user_id,))
             self.db.conn.commit()
-            
             return True, "Registration successful!"
         except Exception as e:
             return False, f"Error: {str(e)}"
     
     def login(self, username, password):
-        """ورود کاربر"""
         try:
             self.db.cursor.execute(
                 'SELECT id, username, email, password_hash, avatar, plan, daily_goal, current_streak, xp_total, level FROM users WHERE username = ? OR email = ?',
                 (username, username)
             )
             row = self.db.cursor.fetchone()
-            
             if not row:
                 return False, "User not found", None
-            
             if not self.verify_password(password, row[3]):
                 return False, "Wrong password", None
-            
             now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             self.db.cursor.execute("UPDATE users SET last_active = ? WHERE id = ?", (now, row[0]))
             self.db.conn.commit()
-            
             user = {
                 'id': row[0],
                 'username': row[1],
@@ -115,26 +86,42 @@ class UserManager:
             }
             self.current_user = user
             return True, "Welcome back!", user
-            
         except Exception as e:
             return False, f"Error: {str(e)}", None
     
-    def add_xp(self, user_id, amount):
+    def login_by_id(self, user_id):
+        """ورود خودکار با استفاده از شناسه کاربر (بدون نیاز به رمز عبور)"""
         try:
-            self.db.cursor.execute("SELECT xp_total, level FROM users WHERE id = ?", (user_id,))
+            self.db.cursor.execute(
+                'SELECT id, username, email, password_hash, avatar, plan, daily_goal, current_streak, xp_total, level FROM users WHERE id = ?',
+                (user_id,)
+            )
             row = self.db.cursor.fetchone()
             if not row:
                 return False
-            xp, level = row
-            new_xp = xp + amount
-            new_level = level
-            while new_xp >= new_level * 100:
-                new_level += 1
-            self.db.cursor.execute("UPDATE users SET xp_total = ?, level = ? WHERE id = ?", (new_xp, new_level, user_id))
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            self.db.cursor.execute("UPDATE users SET last_active = ? WHERE id = ?", (now, row[0]))
             self.db.conn.commit()
-            return new_level > level
-        except:
+            user = {
+                'id': row[0],
+                'username': row[1],
+                'email': row[2],
+                'avatar': row[4] or '😊',
+                'plan': row[5] or 'free',
+                'daily_goal': row[6] or 10,
+                'current_streak': row[7] or 0,
+                'xp_total': row[8] or 0,
+                'level': row[9] or 1
+            }
+            self.current_user = user
+            return True
+        except Exception as e:
+            print(f"Auto login error: {e}")
             return False
+    
+    def add_xp(self, user_id, amount):
+        # حذف شده (در صورت نیاز می‌توان کامنت کرد)
+        pass
     
     def get_daily_progress(self, user_id):
         try:
@@ -186,7 +173,7 @@ class UserManager:
             )
             self.db.conn.commit()
             self.update_daily_progress(user_id, words_added=1)
-            self.add_xp(user_id, 10)
+            # XP حذف شد (قبلاً add_xp وجود داشت)
             return self.db.cursor.lastrowid
         except Exception as e:
             print(f"Error adding vocabulary: {e}")
@@ -228,7 +215,7 @@ class UserManager:
         )
         self.db.conn.commit()
         self.update_daily_progress(user_id, words_added=1)
-        self.add_xp(user_id, 5)
+        # XP حذف شد
         return self.db.cursor.lastrowid
     
     def get_phrases(self, user_id, search=None):
@@ -343,14 +330,12 @@ class UserManager:
             return None, "User not found"
         if not row[5]:
             return None, "This user's profile is private"
-        
         today = datetime.now().strftime("%Y-%m-%d")
         self.db.cursor.execute(
             'SELECT words_learned, goal_achieved FROM daily_progress WHERE user_id = ? AND date = ?',
             (target_id, today)
         )
         progress = self.db.cursor.fetchone()
-        
         return {
             'username': row[0],
             'avatar': row[1],
