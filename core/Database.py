@@ -1,23 +1,43 @@
 import sqlite3
+import threading
 from datetime import datetime, timedelta
 import json
 import os
 import re
 
+# ==================== Thread-safe connection ====================
+_local = threading.local()
+
+def _get_connection():
+    """بازگرداندن اتصال دیتابیس مخصوص thread جاری"""
+    if not hasattr(_local, 'conn'):
+        _local.conn = sqlite3.connect('idelingo.db')
+        _local.conn.row_factory = sqlite3.Row  # اختیاری، برای راحتی
+    return _local.conn
+
+def _close_connection():
+    """بستن اتصال thread جاری (در صورت نیاز)"""
+    if hasattr(_local, 'conn'):
+        _local.conn.close()
+        del _local.conn
+
 # ==================== Database ====================
 class Database:
-    def __init__(self, db_path='idelingo.db'):
-        self.db_path = db_path
+    def __init__(self):
         self._create_tables()
         self._migrate_database()
         self._create_indexes()
     
-    def _get_connection(self):
-        """ایجاد یک اتصال جدید (هر بار)"""
-        return sqlite3.connect(self.db_path)
+    def _get_cursor(self):
+        """بازگرداندن cursor از اتصال thread-safe"""
+        return _get_connection().cursor()
+    
+    def _commit(self):
+        """commit کردن اتصال thread جاری"""
+        _get_connection().commit()
     
     def _create_tables(self):
-        conn = self._get_connection()
+        conn = _get_connection()
         cursor = conn.cursor()
         cursor.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL,
@@ -54,10 +74,9 @@ class Database:
             user_id INTEGER NOT NULL, message TEXT NOT NULL, corrected_text TEXT,
             suggestions TEXT, timestamp TEXT NOT NULL)''')
         conn.commit()
-        conn.close()
     
     def _migrate_database(self):
-        conn = self._get_connection()
+        conn = _get_connection()
         cursor = conn.cursor()
         try:
             cursor.execute("PRAGMA table_info(vocabulary)")
@@ -70,11 +89,9 @@ class Database:
             conn.commit()
         except Exception as e:
             print(f"Migration error: {e}")
-        finally:
-            conn.close()
     
     def _create_indexes(self):
-        conn = self._get_connection()
+        conn = _get_connection()
         cursor = conn.cursor()
         try:
             cursor.execute('CREATE INDEX IF NOT EXISTS idx_vocabulary_user_id ON vocabulary(user_id)')
@@ -91,49 +108,18 @@ class Database:
             print("✅ Database indexes created successfully")
         except Exception as e:
             print(f"Error creating indexes: {e}")
-        finally:
-            conn.close()
     
-    # تمام متدهای قبلی که از self.cursor استفاده می‌کردند باید بازنویسی شوند.
-    # در زیر متدهای مهم را با استفاده از اتصال موقت بازنویسی می‌کنیم.
-    # (برای سایر متدها نیز به همین صورت عمل کنید)
+    # ========== دسترسی به cursor و conn برای سازگاری با کدهای موجود ==========
+    @property
+    def cursor(self):
+        """بازگرداندن cursor از اتصال thread-safe (برای استفاده در UserManager و PlanManager)"""
+        return _get_connection().cursor()
     
-    def execute_query(self, query, params=None, fetchone=False, fetchall=False, commit=False):
-        conn = self._get_connection()
-        cursor = conn.cursor()
-        try:
-            if params:
-                cursor.execute(query, params)
-            else:
-                cursor.execute(query)
-            if commit:
-                conn.commit()
-            if fetchone:
-                result = cursor.fetchone()
-            elif fetchall:
-                result = cursor.fetchall()
-            else:
-                result = None
-            return result
-        finally:
-            conn.close()
+    @property
+    def conn(self):
+        """بازگرداندن اتصال thread-safe"""
+        return _get_connection()
     
-    # به عنوان مثال، متد get_user_plan قبلی که در PlanManager استفاده می‌شود:
-    def get_user_plan(self, user_id):
-        query = 'SELECT * FROM user_plans WHERE user_id = ?'
-        row = self.execute_query(query, (user_id,), fetchone=True)
-        if not row:
-            # ایجاد plan پیش‌فرض
-            self.execute_query('INSERT INTO user_plans (user_id, plan_type, last_reset_date) VALUES (?, "daily", ?)',
-                               (user_id, datetime.now().strftime("%Y-%m-%d")), commit=True)
-            return self.get_user_plan(user_id)
-        return {
-            'id': row[0], 'user_id': row[1], 'plan_type': row[2], 'weekly_goal_words': row[3],
-            'weekly_goal_grammar': row[4], 'weekly_goal_phrases': row[5], 'monthly_goal_words': row[6],
-            'monthly_goal_grammar': row[7], 'monthly_goal_phrases': row[8], 'custom_goal_words': row[9],
-            'custom_goal_grammar': row[10], 'custom_goal_phrases': row[11], 'custom_interval_days': row[12],
-            'current_streak': row[13], 'longest_streak': row[14], 'last_reset_date': row[15]
-        }
-    
-    # سایر متدها (مانند update_user_plan, etc.) باید به همین صورت بازنویسی شوند.
-    # از آنجا که تعداد متدها زیاد است، لطفاً کل فایل Database.py را بازنویسی می‌کنیم.
+    def close(self):
+        """بستن اتصال thread جاری (در پایان کار برنامه)"""
+        _close_connection()
