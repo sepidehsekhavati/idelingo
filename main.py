@@ -85,16 +85,6 @@ class IDELingoApp:
             self.show_error_page()
 
     def auto_login(self):
-        try:
-            data = self.page.client_storage.get(STORAGE_USER_KEY)
-            if data and isinstance(data, dict):
-                uid = data.get("id")
-                if uid and self.user_manager.login_by_id(uid):
-                    self.current_user = self.user_manager.current_user
-                    self.show_dashboard()
-                    return
-        except:
-            pass
         self.show_login()
 
     def _close_dialog(self, dialog):
